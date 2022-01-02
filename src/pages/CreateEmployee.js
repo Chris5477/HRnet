@@ -1,58 +1,37 @@
-const createEmployee = () => {
+import Button from "../components/Button";
+import { useState } from "react";
+import InputWrapper from "../components/InputWrapper";
+import { arrayInputsIdentity, arrayInputsAdress } from "../ListingComponents/Listing-inputs";
+
+const CreateEmployee = () => {
+	const [messageForm, setMessageForm] = useState("");
+
 	return (
 		<>
-			<h1>HRnet</h1>
-
 			<section className="container">
 				<a href="employee-list.html">View Current Employees</a>
 				<h2>Create Employee</h2>
 				<form action="#" id="create-employee">
-					<label htmlFor="first-name">First Name</label>
-					<input type="text" id="first-name" />
-
-					<label htmlFor="last-name">Last Name</label>
-					<input type="text" id="last-name" />
-
-					<label htmlFor="date-of-birth">Date of Birth</label>
-					<input id="date-of-birth" type="text" />
-
-					<label htmlFor="start-date">Start Date</label>
-					<input id="start-date" type="text" />
+					{arrayInputsIdentity.map(({ label, text }, index) => (
+						<InputWrapper label={label} text={text} key={`index + ${index}`} />
+					))}
 
 					<fieldset className="address">
 						<legend>Address</legend>
-
-						<label htmlFor="street">Street</label>
-						<input id="street" type="text" />
-
-						<label htmlFor="city">City</label>
-						<input id="city" type="text" />
-
-						<label htmlFor="state">State</label>
-						<select name="state" id="state"></select>
-
-						<label htmlFor="zip-code">Zip Code</label>
-						<input id="zip-code" type="number" />
+						{arrayInputsAdress.map((wrapper, index) => (
+							<InputWrapper label={wrapper.label} text={wrapper.text} key={`index + ${index}`} />
+						))}
 					</fieldset>
 
-					<label htmlFor="department">Department</label>
-					<select name="department" id="department">
-						<option>Sales</option>
-						<option>Marketing</option>
-						<option>Engineering</option>
-						<option>Human Resources</option>
-						<option>Legal</option>
-					</select>
+					<InputWrapper label="Department" text={"Department"} />
 				</form>
-
-				<button /*onClick={saveEmployee}*/>Save</button>
+				{/* <button onClick={() => setMessageForm("Employee Created")}>Save</button> */}
+				<Button methods={(message) => setMessageForm(message)} text={"save"} />
 			</section>
 
-			<div id="confirmation" className="modal">
-				Employee Created!
-			</div>
+			{messageForm}
 		</>
 	);
 };
 
-export default createEmployee;
+export default CreateEmployee;
