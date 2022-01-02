@@ -25,7 +25,6 @@ const CreateEmployee = () => {
 
 					<InputWrapper label="Department" text={"Department"} />
 				</form>
-				{/* <button onClick={() => setMessageForm("Employee Created")}>Save</button> */}
 				<Button methods={(message) => setMessageForm(message)} text={"save"} />
 			</section>
 
