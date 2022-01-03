@@ -1,5 +1,6 @@
 import Button from "../components/Button";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import InputWrapper from "../components/InputWrapper";
 import { arrayInputsIdentity, arrayInputsAdress } from "../ListingComponents/Listing-inputs";
 
@@ -9,7 +10,8 @@ const CreateEmployee = () => {
 	return (
 		<>
 			<section className="container">
-				<a href="employee-list.html">View Current Employees</a>
+				<Link to="/employee-list">View Current Employees</Link>
+
 				<h2>Create Employee</h2>
 				<form action="#" id="create-employee">
 					{arrayInputsIdentity.map(({ label, text }, index) => (

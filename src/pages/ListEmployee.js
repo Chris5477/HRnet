@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom";
+
 const ListEmployee = () => {
 	return (
-		<div id="employee-div" class="container">
+		<div id="employee-div" className="container">
 			<h2>Current Employees</h2>
-			<table id="employee-table" class="display"></table>
-			<a href="index.html">Home</a>
+			<table id="employee-table" className="display"></table>
+			<Link to="/">Home</Link>
 		</div>
 	);
 };
