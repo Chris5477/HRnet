@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import InputWrapper from "../components/InputWrapper";
 import { arrayInputsIdentity, arrayInputsAdress } from "../ListingComponents/Listing-inputs";
+import Fieldset from "../components/Fieldset";
 
 const CreateEmployee = () => {
 	const [messageForm, setMessageForm] = useState("");
@@ -14,17 +15,8 @@ const CreateEmployee = () => {
 
 				<h2>Create Employee</h2>
 				<form action="#" id="create-employee">
-					{arrayInputsIdentity.map(({ label, text }, index) => (
-						<InputWrapper label={label} text={text} key={`index + ${index}`} />
-					))}
-
-					<fieldset className="address">
-						<legend>Address</legend>
-						{arrayInputsAdress.map((wrapper, index) => (
-							<InputWrapper label={wrapper.label} text={wrapper.text} key={`index + ${index}`} />
-						))}
-					</fieldset>
-
+					<Fieldset wrapperClass={"identity"} legend={"Identity"} array={arrayInputsIdentity} />
+					<Fieldset wrapperClass={"adress"} legend={"Adress"} array={arrayInputsAdress} />
 					<InputWrapper label="Department" text={"Department"} />
 				</form>
 				<Button methods={(message) => setMessageForm(message)} text={"save"} />
