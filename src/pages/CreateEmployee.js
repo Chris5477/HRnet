@@ -1,25 +1,23 @@
 import Button from "../components/Button";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import InputWrapper from "../components/InputWrapper";
 import { arrayInputsIdentity, arrayInputsAdress } from "../ListingComponents/Listing-inputs";
 import Fieldset from "../components/Fieldset";
+import Header from "../components/Header";
 
 const CreateEmployee = () => {
 	const [messageForm, setMessageForm] = useState("");
 
 	return (
 		<>
+			<Header />
 			<section className="container">
-				<Link to="/employee-list">View Current Employees</Link>
-
-				<h2>Create Employee</h2>
 				<form action="#" id="create-employee">
-					<Fieldset wrapperClass={"identity"} legend={"Identity"} array={arrayInputsIdentity} />
-					<Fieldset wrapperClass={"adress"} legend={"Adress"} array={arrayInputsAdress} />
+					<Fieldset wrapperClass={" fieldset identity"} legend={"Identity"} array={arrayInputsIdentity} />
+					<Fieldset wrapperClass={"fieldset adress"} legend={"Adress"} array={arrayInputsAdress} />
 					<InputWrapper label="Department" text={"Department"} />
+					<Button nameClass="create-btn" methods={(message) => setMessageForm(message)} text={"Create"} />
 				</form>
-				<Button methods={(message) => setMessageForm(message)} text={"save"} />
 			</section>
 
 			{messageForm}

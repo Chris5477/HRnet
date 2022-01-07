@@ -1,84 +1,84 @@
 .App {
-	text-align: center;
 	width: 100%;
 	height: 100vh;
+	background-color: rgb(231, 251, 194);
 }
 
-.App-logo {
-	pointer-events: none;
+.header {
+	position: relative;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-	.App-logo {
-		animation: App-logo-spin infinite 20s linear;
-	}
+.title-page {
+	font-size: 34px;
+	margin: 0;
+	text-align: center;
+	padding: 30px 0;
 }
 
-.App-header {
-	background-color: #282c34;
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	font-size: calc(10px + 2vmin);
-	color: white;
+.link {
+	font-size: 25px;
+	color: black;
+	text-decoration: none;
+	position: absolute;
+	top: 50%;
+	left: 5%;
+	transform: translateY(-50%);
 }
 
-.App-link {
-	color: #61dafb;
-}
-.container {
-	background: radial-gradient(
-		circle at 100%,
-		#93ad26 25%,
-		#5a6f14 80%,
-		#eee 90%,
-		#eee 100%,
-		#93ad26 65%
-	);
-	height: 100vh;
-}
 #create-employee {
 	display: flex;
-	justify-content: center;
+	justify-content: space-around;
 	align-items: center;
-	flex-direction: column;
+	flex-wrap: wrap;
+	position: relative;
 }
 
-fieldset {
+.fieldset {
 	width: 40%;
-	height: 35vh;
-	background-color: rgb(179, 179, 179);
+	height: 60vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
 }
 
+legend {
+	font-size: 30px;
+	text-align: left;
+	text-transform: uppercase;
+	color: black;
+	border-bottom: 3px solid #333;
+	font-style: oblique;
+	letter-spacing: 2px;
+}
+
+.identity {
+	background: linear-gradient(90deg, #6d841a60, #92ad26b0);
+}
+
+.adress {
+	background: linear-gradient(90deg, #92ad26b0, #6d841a60);
+}
 .formData {
 	width: 80%;
-	height: 5vh;
+	height: auto;
 	display: flex;
 	justify-content: center;
-	align-items: center;
+	align-items: flex-start;
 	flex-direction: column;
 	margin: 10px 0;
 }
 
 .formData input,
 .formData select {
+	display: inline-block;
 	width: 100%;
-	height: 50vh;
+	height: 30px;
 }
 
-.formData label {
-	font-size: 18px;
-	transform: translate(-150px, 22px);
-}
-
-.formData label:hover {
-	animation: moveLabel 0.7s ease-out forwards;
+label {
+	display: block;
+	font-size: 25px;
 }
 
 select[name="Department"] {
@@ -86,21 +86,59 @@ select[name="Department"] {
 	height: 50px;
 }
 
-@keyframes moveLabel {
-	from {
-		transform: translate(-150px, 22px);
-	}
-
-	to {
-		transform: translate(-160px, 0);
-	}
+.create-btn {
+	position: absolute;
+	bottom: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 150px;
+	height: 50px;
+	border: 3px solid #92ad26f8;
+	background-color: white;
+	color: #92ad26f8;
+	font-size: 25px;
+	font-weight: bolder;
+	border-radius: 4px;
+	cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-	from {
-		transform: rotate(0deg);
+.create-btn:hover {
+	animation: pulse 0.9s linear forwards;
+}
+
+@keyframes pulse {
+	0% {
+		border: 3px solid #92ad26f8;
+		background-color: white;
+		color: #92ad26f8;
+		clip-path: circle(0%);
+		width: 150px;
 	}
-	to {
-		transform: rotate(360deg);
+
+	33% {
+		opacity: 0.8;
+		clip-path: circle(50%);
+	}
+
+	66% {
+		border: 3px solid white;
+		background-color: #92ad26f8;
+		color: white;
+		opacity: 05;
+		clip-path: circle(100%);
+		width: 100px;
+		height: 100px;
+	}
+
+	100% {
+		border: 3px solid #6d841aef;
+		background-color: #92ad26f8;
+		color: white;
+		opacity: 1;
+		clip-path: circle(100%);
+		border-radius: 50%;
+		width: 100px;
+		height: 100px;
+		bottom: 0;
 	}
 }
