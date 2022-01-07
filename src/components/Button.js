@@ -1,8 +1,8 @@
 const Button = ({ nameClass, methods, text }) => {
 	return (
-		<button className={nameClass} onClick={() => methods("Employee Created")}>
+		<button className={nameClass} onClick={() => methods && methods()}>
 			{text}
 		</button>
-	); // NOT FINAL
+	);
 };
 export default Button;
