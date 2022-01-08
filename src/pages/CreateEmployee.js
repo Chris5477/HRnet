@@ -1,17 +1,35 @@
 import Button from "../components/Button";
-import { useState } from "react";
+
 import InputWrapper from "../components/InputWrapper";
 import { arrayInputsIdentity, arrayInputsAdress } from "../ListingComponents/Listing-inputs";
 import Fieldset from "../components/Fieldset";
 import Header from "../components/Header";
 import Modal from "../components/Modal";
+import { useSelector, useDispatch } from "react-redux";
+import { setData } from "../redux/employee";
 
 const CreateEmployee = () => {
-	const [messageForm, setMessageForm] = useState("");
+	const myState = useSelector((state) => state);
+	const myDispatch = useDispatch();
 
 	const sendData = (e) => {
 		e.preventDefault();
+
+		const inputs = [...document.querySelectorAll("input")];
 		document.querySelector(".modal").classList.remove("no-display");
+		const wxc = {
+			firstName: inputs[0].value,
+			lastName: inputs[1].value,
+			birthday: inputs[2].value,
+			begin: inputs[3].value, // A SIMPLIFIER
+			street: inputs[4].value,
+			city: inputs[5].value,
+			state: inputs[6].value,
+			zip: inputs[7].value,
+			department: document.querySelector("select").value,
+		};
+		myDispatch(setData(wxc));
+		setTimeout(() => console.log(myState), 2000);
 	};
 
 	return (
@@ -26,8 +44,6 @@ const CreateEmployee = () => {
 				</form>
 				<Modal />
 			</section>
-
-			{messageForm}
 		</>
 	);
 };
