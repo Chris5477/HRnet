@@ -3,6 +3,7 @@ import Option from "./Option";
 
 const InputWrapper = ({ label, text }) => {
 	const showCalendar = () => {
+		console.log(document.querySelector(".calendar"));
 		document.querySelector(".calendar").classList.remove("no-display");
 	};
 	let input = null;

@@ -6,7 +6,7 @@ import Header from "../components/Header";
 import Modal from "../components/Modal";
 import { useDispatch } from "react-redux";
 import { setData } from "../redux/employee";
-import Datepicker from "../components/Datapicker";
+
 
 const CreateEmployee = () => {
 	const myDispatch = useDispatch();
@@ -30,6 +30,10 @@ const CreateEmployee = () => {
 		myDispatch(setData(wxc));
 	};
 
+
+const CreateEmployee = () => {
+	
+
 	return (
 		<>
 			<Header />
@@ -42,7 +46,6 @@ const CreateEmployee = () => {
 				</form>
 				<Modal />
 			</section>
-			<Datepicker />
 		</>
 	);
 };
