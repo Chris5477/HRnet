@@ -7,7 +7,6 @@ import Modal from "../components/Modal";
 import { useDispatch } from "react-redux";
 import { setData } from "../redux/employee";
 
-
 const CreateEmployee = () => {
 	const myDispatch = useDispatch();
 
@@ -29,10 +28,6 @@ const CreateEmployee = () => {
 		};
 		myDispatch(setData(wxc));
 	};
-
-
-const CreateEmployee = () => {
-	
 
 	return (
 		<>

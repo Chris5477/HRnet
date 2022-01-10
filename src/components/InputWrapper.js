@@ -1,14 +1,15 @@
 import { options } from "../ListingComponents/Listing-option";
 import Option from "./Option";
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
 
 const InputWrapper = ({ label, text }) => {
 	const showCalendar = () => {
-		console.log(document.querySelector(".calendar"));
 		document.querySelector(".calendar").classList.remove("no-display");
 	};
 	let input = null;
 
-	if (label == "Department") {
+	if (label === "Department") {
 		input = (
 			<div className="formData">
 				<label htmlFor={label}>Department</label>
@@ -19,7 +20,7 @@ const InputWrapper = ({ label, text }) => {
 				</select>
 			</div>
 		);
-	} else if (label == "date-of-birth" || label == "start-date") {
+	} else if (label === "date-of-birth" || label === "start-date") {
 		input = (
 			<div className="formData">
 				<label htmlFor={label}>{text}</label>
@@ -35,6 +36,13 @@ const InputWrapper = ({ label, text }) => {
 		);
 	}
 
-	return input;
+	return (
+		<>
+			<div className="calendar no-display">
+				<Calendar onClickDay={(value) => console.log(value)} />
+			</div>
+			{input}
+		</>
+	);
 };
 export default InputWrapper;
