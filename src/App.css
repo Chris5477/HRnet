@@ -219,3 +219,13 @@ tr:nth-child(odd) {
 tr:nth-child(even) {
 	background-color: #f9f9f9;
 }
+
+.no-display {
+	display: none;
+}
+
+.calendar {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
