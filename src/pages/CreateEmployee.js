@@ -1,15 +1,13 @@
 import Button from "../components/Button";
-
 import InputWrapper from "../components/InputWrapper";
 import { arrayInputsIdentity, arrayInputsAdress } from "../ListingComponents/Listing-inputs";
 import Fieldset from "../components/Fieldset";
 import Header from "../components/Header";
 import Modal from "../components/Modal";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setData } from "../redux/employee";
 
 const CreateEmployee = () => {
-	const myState = useSelector((state) => state);
 	const myDispatch = useDispatch();
 
 	const sendData = (e) => {
@@ -29,7 +27,6 @@ const CreateEmployee = () => {
 			department: document.querySelector("select").value,
 		};
 		myDispatch(setData(wxc));
-		setTimeout(() => console.log(myState), 2000);
 	};
 
 	return (

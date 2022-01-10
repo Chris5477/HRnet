@@ -5,10 +5,10 @@ const initialState = {
 };
 
 export const reducerEmployee = (state = initialState, action) => {
-	if (action.type == CREATE_EMPLOYEE) {
+	if (action.type === CREATE_EMPLOYEE) {
 		return {
 			...state,
-			employee: state.employee.push(action.payload),
+			state: state.employee.push(action.payload),
 		};
 	} else {
 		return state;
