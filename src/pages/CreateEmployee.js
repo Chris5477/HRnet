@@ -1,5 +1,4 @@
 import Button from "../components/Button";
-import InputWrapper from "../components/InputWrapper";
 import { arrayInputsIdentity, arrayInputsAdress } from "../ListingComponents/Listing-inputs";
 import Fieldset from "../components/Fieldset";
 import Header from "../components/Header";
@@ -34,9 +33,8 @@ const CreateEmployee = () => {
 			<Header />
 			<section className="container">
 				<form id="create-employee" onSubmit={(e) => sendData(e)}>
-					<Fieldset wrapperClass={" fieldset identity"} legend={"Identity"} array={arrayInputsIdentity} />
+					<Fieldset wrapperClass={" fieldset employee"} legend={"Employee"} array={arrayInputsIdentity} />
 					<Fieldset wrapperClass={"fieldset adress"} legend={"Adress"} array={arrayInputsAdress} />
-					<InputWrapper label="Department" text={"Department"} />
 					<Button nameClass="create-btn" text={"Create"} />
 				</form>
 				<Modal />
