@@ -1,7 +1,7 @@
 import { options } from "../ListingComponents/Listing-option";
 import Option from "./Option";
 import Calendar from "react-calendar";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import "react-calendar/dist/Calendar.css";
 
 const InputWrapper = ({ label, text }) => {

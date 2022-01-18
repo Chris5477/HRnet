@@ -204,6 +204,19 @@ tr:nth-child(even) {
 	transform: translate(-50%, -50%);
 }
 
+.menu-list-employee {
+	width: 90%;
+	height: auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.menu-list-employee .formData {
+	width: 300px;
+	flex-direction: row;
+}
+
 .table-head {
 	cursor: pointer;
 }
