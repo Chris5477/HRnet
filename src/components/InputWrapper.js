@@ -10,7 +10,7 @@ const InputWrapper = ({ label, text }) => {
 
 	const showCalendar = (css) => {
 		const element = document.querySelector(css);
-		const allButtonsCalendar = [...document.querySelectorAll("button")];
+		const allButtonsCalendar = [...document.querySelectorAll("abbr")];
 		element.classList.remove("no-display");
 		allButtonsCalendar.forEach((btn) => btn.addEventListener("click", () => element.classList.add("no-display")));
 	};
