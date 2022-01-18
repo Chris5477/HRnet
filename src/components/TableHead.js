@@ -1,4 +1,8 @@
-const TableHead = ({ value }) => {
-	return <th>{value}</th>;
+const TableHead = ({ value, method }) => {
+	return (
+		<th onClick={() => method()} className={"table-head"}>
+			{value}
+		</th>
+	);
 };
 export default TableHead;

@@ -79,7 +79,7 @@
 
 .fieldset {
 	width: 40%;
-	height: 60vh;
+	height: 65vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -132,7 +132,7 @@ select[name="Department"] {
 
 .create-btn {
 	position: absolute;
-	bottom: 15%;
+	bottom: 5%;
 	left: 50%;
 	transform: translateX(-50%);
 	width: 150px;
@@ -147,26 +147,14 @@ select[name="Department"] {
 }
 
 .create-btn:hover {
-	animation: pulse 0.5s ease-in-out forwards;
+	animation: pulse 0.3s ease-in-out forwards;
 }
 
 @keyframes pulse {
-	0% {
-		background-color: white;
-		color: #92ad26f8;
-		width: 80px;
-	}
-
-	50% {
-		height: 100px;
-		width: 150px;
-	}
-
 	100% {
 		background-color: #92ad26f8;
 		color: white;
 		border-radius: 50%;
-		bottom: 14%;
 		width: 100px;
 		height: 100px;
 	}
@@ -214,4 +202,8 @@ tr:nth-child(even) {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+}
+
+.table-head {
+	cursor: pointer;
 }

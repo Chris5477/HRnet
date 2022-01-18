@@ -5,8 +5,8 @@ import { useState, useRef } from "react";
 import "react-calendar/dist/Calendar.css";
 
 const InputWrapper = ({ label, text }) => {
-	const [aaa, setaaa] = useState("");
-	const [bbb, setbbb] = useState("");
+	const [birthDay, setbirthDay] = useState("");
+	const [beginDate, setbeginDate] = useState("");
 
 	const showCalendar = (css) => {
 		const element = document.querySelector(css);
@@ -32,12 +32,12 @@ const InputWrapper = ({ label, text }) => {
 		input = (
 			<>
 				<div className="calendar no-display">
-					<Calendar onClickDay={(value) => setaaa(String(value).split(" ").splice(1, 3).join("/"))} />
+					<Calendar onClickDay={(value) => setbirthDay(String(value).split(" ").splice(1, 3).join("/"))} />
 				</div>
 				<div className="formData">
 					<label htmlFor={label}>{text}</label>
 
-					<input onFocus={() => showCalendar(".calendar")} id={label} type="text" defaultValue={aaa} />
+					<input onFocus={() => showCalendar(".calendar")} id={label} type="text" defaultValue={birthDay} />
 				</div>
 			</>
 		);
@@ -45,12 +45,12 @@ const InputWrapper = ({ label, text }) => {
 		input = (
 			<>
 				<div className="calendar2 no-display">
-					<Calendar onClickDay={(value) => setbbb(String(value).split(" ").splice(1, 3).join("/"))} />
+					<Calendar onClickDay={(value) => setbeginDate(String(value).split(" ").splice(1, 3).join("/"))} />
 				</div>
 				<div className="formData">
 					<label htmlFor={label}>{text}</label>
 
-					<input onFocus={() => showCalendar(".calendar2")} id={label} type="text" defaultValue={bbb} />
+					<input onFocus={() => showCalendar(".calendar2")} id={label} type="text" defaultValue={beginDate} />
 				</div>
 			</>
 		);
