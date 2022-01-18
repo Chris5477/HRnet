@@ -1,17 +1,11 @@
 const LineEmployee = ({ data }) => {
-	const { firstName, lastName, birthday, begin, street, city, state, zip, department } = data;
+	const listData = Object.values(data);
 
 	return (
 		<tr>
-			<td>{firstName}</td>
-			<td>{lastName}</td>
-			<td>{begin}</td>
-			<td>{department}</td>
-			<td>{birthday}</td>
-			<td>{street}</td>
-			<td>{city}</td>
-			<td>{state}</td>
-			<td>{zip}</td>
+			{listData.map((data, index) => (
+				<td key={`index ${index}`}>{data}</td>
+			))}
 		</tr>
 	);
 };

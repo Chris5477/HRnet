@@ -208,7 +208,8 @@ tr:nth-child(even) {
 	display: none;
 }
 
-.calendar {
+.calendar,
+.calendar2 {
 	position: absolute;
 	top: 50%;
 	left: 50%;

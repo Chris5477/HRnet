@@ -1,21 +1,20 @@
 import { options } from "../ListingComponents/Listing-option";
 import Option from "./Option";
 import Calendar from "react-calendar";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import "react-calendar/dist/Calendar.css";
 
 const InputWrapper = ({ label, text }) => {
 	const [aaa, setaaa] = useState("");
 	const [bbb, setbbb] = useState("");
 
-	const closeModal = () => {
-		document.querySelector(".calendar").classList.add("no-display");
+	const showCalendar = (css) => {
+		const element = document.querySelector(css);
+		const allButtonsCalendar = [...document.querySelectorAll("button")];
+		element.classList.remove("no-display");
+		allButtonsCalendar.forEach((btn) => btn.addEventListener("click", () => element.classList.add("no-display")));
 	};
 
-	const showCalendar = () => {
-		document.querySelector(".calendar").classList.remove("no-display");
-		document.querySelector(".react-calendar__month-view__days").addEventListener("click", closeModal);
-	};
 	let input = null;
 
 	if (label === "Department") {
@@ -33,25 +32,25 @@ const InputWrapper = ({ label, text }) => {
 		input = (
 			<>
 				<div className="calendar no-display">
-					<Calendar onClickDay={(value) => setaaa(value)} />
+					<Calendar onClickDay={(value) => setaaa(String(value).split(" ").splice(1, 3).join("/"))} />
 				</div>
 				<div className="formData">
 					<label htmlFor={label}>{text}</label>
 
-					<input onFocus={showCalendar} id={label} type="text" defaultValue={aaa} />
+					<input onFocus={() => showCalendar(".calendar")} id={label} type="text" defaultValue={aaa} />
 				</div>
 			</>
 		);
 	} else if (label === "start-date") {
 		input = (
 			<>
-				<div className="calendar no-display">
-					<Calendar onClickDay={(value) => setbbb(value)} />
+				<div className="calendar2 no-display">
+					<Calendar onClickDay={(value) => setbbb(String(value).split(" ").splice(1, 3).join("/"))} />
 				</div>
 				<div className="formData">
 					<label htmlFor={label}>{text}</label>
 
-					<input onFocus={showCalendar} id={label} type="text" defaultValue={bbb} />
+					<input onFocus={() => showCalendar(".calendar2")} id={label} type="text" defaultValue={bbb} />
 				</div>
 			</>
 		);
