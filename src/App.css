@@ -206,6 +206,8 @@ tr:nth-child(even) {
 }
 
 .react-calendar {
+	position: absolute;
+	bottom: 19%;
 	z-index: 100;
 }
 
@@ -216,4 +218,24 @@ tr:nth-child(even) {
 
 .table-head {
 	cursor: pointer;
+	position: relative;
+}
+
+.arrow {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	position: absolute;
+	top: 30%;
+	right: 4%;
+}
+
+.arrow span {
+	height: 5px;
+}
+
+.disabled {
+	color: grey;
+	opacity: 0.4;
 }

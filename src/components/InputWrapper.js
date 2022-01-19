@@ -1,10 +1,10 @@
 import { options } from "../ListingComponents/Listing-option";
 import Option from "./Option";
 import Calendar from "react-calendar";
-import { useState } from "react";
+import { forwardRef, useState } from "react";
 import "react-calendar/dist/Calendar.css";
 
-const InputWrapper = ({ label, text }) => {
+const InputWrapper = forwardRef(({ label, text, method }, ref) => {
 	const [birthDay, setbirthDay] = useState("");
 	const [beginDate, setbeginDate] = useState("");
 	const [showCalendar, setShowCalendar] = useState(false);
@@ -56,11 +56,11 @@ const InputWrapper = ({ label, text }) => {
 		input = (
 			<div className="formData">
 				<label htmlFor={label}>{text}</label>
-				<input id={label} type="text" />
+				<input ref={ref} onChange={(e) => method && method(e.target.value)} id={label} type="text" />
 			</div>
 		);
 	}
 
 	return <>{input}</>;
-};
+});
 export default InputWrapper;

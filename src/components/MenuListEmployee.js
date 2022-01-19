@@ -1,14 +1,22 @@
 import { listMaxResult } from "../ListingComponents/Listing-option";
+import { useRef } from "react";
 import InputWrapper from "./InputWrapper";
 import Option from "./Option";
 import { useSelector, useDispatch } from "react-redux";
 import { filteredEmployee } from "../redux/employee";
+
 const MenuListEmployee = () => {
+	const searchRef = useRef();
+	const listEmployee = useSelector((state) => state.employee);
 	const maxEmployee = useSelector((state) => state.maxEmployee);
 	const myDispatch = useDispatch();
 
 	const setMaxResult = (e) => {
 		myDispatch(filteredEmployee(e.target.value));
+	};
+
+	const search = (e) => {
+		const wxc = listEmployee.filter((el) => el.state.toLowerCase().match(e));
 	};
 
 	return (
@@ -23,7 +31,7 @@ const MenuListEmployee = () => {
 				entries
 			</span>
 
-			<InputWrapper label={"search"} text={"Search"} />
+			<InputWrapper ref={searchRef} method={search} label={"search"} text={"Search"} />
 		</div>
 	);
 };

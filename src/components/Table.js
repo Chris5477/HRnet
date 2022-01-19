@@ -13,6 +13,9 @@ const Table = () => {
 		const keyList = Object.keys(dataEmployee[0]);
 		const propriety = keyList[index];
 		setBoolean(!boolean);
+		if (dataEmployee[0][propriety] < dataEmployee[1][propriety]) {
+			return dataEmployee.sort((a, b) => b[propriety].localeCompare(a[propriety]));
+		}
 		return dataEmployee.sort((a, b) => a[propriety].localeCompare(b[propriety]));
 	};
 
