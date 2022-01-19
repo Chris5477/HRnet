@@ -1,6 +1,6 @@
 const Button = ({ nameClass, methods, text }) => {
 	return (
-		<button className={nameClass} onClick={() => methods && methods()}>
+		<button className={nameClass} onClick={methods && methods}>
 			{text}
 		</button>
 	);

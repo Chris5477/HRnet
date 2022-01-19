@@ -7,12 +7,16 @@ import "react-calendar/dist/Calendar.css";
 const InputWrapper = ({ label, text }) => {
 	const [birthDay, setbirthDay] = useState("");
 	const [beginDate, setbeginDate] = useState("");
+	const [showCalendar, setShowCalendar] = useState(false);
 
-	const showCalendar = (css) => {
-		const element = document.querySelector(css);
-		const allButtonsCalendar = [...document.querySelectorAll("abbr")];
-		element.classList.remove("no-display");
-		allButtonsCalendar.forEach((btn) => btn.addEventListener("click", () => element.classList.add("no-display")));
+	const changeDateBirthday = (v) => {
+		setbirthDay(String(v).split(" ").splice(1, 3).join("/"));
+		setShowCalendar(false);
+	};
+
+	const changeDateBegin = (v) => {
+		setbeginDate(String(v).split(" ").splice(1, 3).join("/"));
+		setShowCalendar(false);
 	};
 
 	let input = null;
@@ -31,26 +35,20 @@ const InputWrapper = ({ label, text }) => {
 	} else if (label === "date-of-birth") {
 		input = (
 			<>
-				<div className="calendar no-display">
-					<Calendar onClickDay={(value) => setbirthDay(String(value).split(" ").splice(1, 3).join("/"))} />
-				</div>
 				<div className="formData">
 					<label htmlFor={label}>{text}</label>
-
-					<input onFocus={() => showCalendar(".calendar")} id={label} type="text" defaultValue={birthDay} />
+					<input onFocus={() => setShowCalendar(true)} id={label} type="text" defaultValue={birthDay} />
+					{showCalendar && <Calendar onChange={changeDateBirthday} />}
 				</div>
 			</>
 		);
 	} else if (label === "start-date") {
 		input = (
 			<>
-				<div className="calendar2 no-display">
-					<Calendar onClickDay={(value) => setbeginDate(String(value).split(" ").splice(1, 3).join("/"))} />
-				</div>
 				<div className="formData">
 					<label htmlFor={label}>{text}</label>
-
-					<input onFocus={() => showCalendar(".calendar2")} id={label} type="text" defaultValue={beginDate} />
+					<input autoComplete="false" onFocus={() => setShowCalendar(true)} id={label} type="text" defaultValue={beginDate} />
+					{showCalendar && <Calendar onChange={changeDateBegin} />}
 				</div>
 			</>
 		);

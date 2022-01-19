@@ -6,16 +6,17 @@ import { useSelector } from "react-redux";
 
 const Table = () => {
 	const dataEmployee = useSelector((state) => state.employee);
-
+	const maxEmployee = useSelector((state) => state.maxEmployee);
 	const [boolean, setBoolean] = useState(false);
+
 	const sortArray = (index) => {
 		const keyList = Object.keys(dataEmployee[0]);
 		const propriety = keyList[index];
-		console.log(propriety);
-
 		setBoolean(!boolean);
 		return dataEmployee.sort((a, b) => a[propriety].localeCompare(b[propriety]));
 	};
+
+	const limitedResult = dataEmployee.filter((_, index) => index < maxEmployee);
 
 	return (
 		<table id="employee-table" className="display">
@@ -27,7 +28,7 @@ const Table = () => {
 				</tr>
 			</thead>
 			<tbody>
-				{dataEmployee.map((data, index) => (
+				{limitedResult.map((data, index) => (
 					<LineEmployee data={data} key={`index ${index}`} />
 				))}
 			</tbody>

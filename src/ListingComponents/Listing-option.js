@@ -27,6 +27,10 @@ export const options = [
 
 export const listMaxResult = [
 	{
+		value: "",
+		text: "",
+	},
+	{
 		value: 10,
 		text: 10,
 	},
