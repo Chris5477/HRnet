@@ -16,7 +16,7 @@ const MenuListEmployee = () => {
 	};
 
 	const search = (e) => {
-		const wxc = listEmployee.filter((el) => el.state.toLowerCase().match(e));
+		const y = listEmployee.map((el) => Object.values(el)).filter((el) => String(el).toLowerCase().match(e.toLowerCase()));
 	};
 
 	return (

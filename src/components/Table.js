@@ -8,6 +8,7 @@ const Table = () => {
 	const dataEmployee = useSelector((state) => state.employee);
 	const maxEmployee = useSelector((state) => state.maxEmployee);
 	const [boolean, setBoolean] = useState(false);
+	const [indexPagination, setIndexPagination] = useState(0);
 
 	const sortArray = (index) => {
 		const keyList = Object.keys(dataEmployee[0]);
@@ -19,23 +20,53 @@ const Table = () => {
 		return dataEmployee.sort((a, b) => a[propriety].localeCompare(b[propriety]));
 	};
 
-	const limitedResult = dataEmployee.filter((_, index) => index < maxEmployee);
+	let arraySplit = [];
+	let pieceOfArray = [];
+
+	const sizeListEmployee = dataEmployee.length;
+
+	let i = 0;
+	let j = 0;
+
+	while (i < sizeListEmployee) {
+		if (j == maxEmployee) {
+			arraySplit.push(pieceOfArray);
+			pieceOfArray = [];
+			j = 0;
+		} else if (i + 1 == sizeListEmployee) {
+			arraySplit.push(pieceOfArray);
+		}
+
+		pieceOfArray.push(dataEmployee[i]);
+
+		j++;
+		i++;
+	}
 
 	return (
-		<table id="employee-table" className="display">
-			<thead>
-				<tr>
-					{utilsData.map((element, index) => (
-						<TableHead method={() => sortArray(index)} value={element} key={`index ${index}`} />
+		<>
+			<table id="employee-table" className="display">
+				<thead>
+					<tr>
+						{utilsData.map((element, index) => (
+							<TableHead method={() => sortArray(index)} value={element} key={`index ${index}`} />
+						))}
+					</tr>
+				</thead>
+				<tbody>
+					{arraySplit[indexPagination].map((data, index) => (
+						<LineEmployee data={data} key={`index ${index}`} />
 					))}
-				</tr>
-			</thead>
-			<tbody>
-				{limitedResult.map((data, index) => (
-					<LineEmployee data={data} key={`index ${index}`} />
+				</tbody>
+			</table>
+			<div className="pagination">
+				{arraySplit.map((_, index) => (
+					<span onClick={() => setIndexPagination(index)} key={`index ${index}`}>
+						{index + 1}
+					</span>
 				))}
-			</tbody>
-		</table>
+			</div>
+		</>
 	);
 };
 export default Table;

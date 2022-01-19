@@ -239,3 +239,11 @@ tr:nth-child(even) {
 	color: grey;
 	opacity: 0.4;
 }
+
+.pagination {
+	width: 60%;
+	height: auto;
+	display: inline-flex;
+	justify-content: space-around;
+	font-size: 20px;
+}
