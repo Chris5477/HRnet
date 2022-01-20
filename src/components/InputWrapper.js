@@ -3,6 +3,7 @@ import Option from "./Option";
 import Calendar from "react-calendar";
 import { forwardRef, useState } from "react";
 import "react-calendar/dist/Calendar.css";
+import Select from "./Select";
 
 const InputWrapper = forwardRef(({ label, text, method }, ref) => {
 	const [birthDay, setbirthDay] = useState("");
@@ -24,12 +25,7 @@ const InputWrapper = forwardRef(({ label, text, method }, ref) => {
 	if (label === "Department") {
 		input = (
 			<div className="formData">
-				<label htmlFor={label}>Department</label>
-				<select name={label} id={label}>
-					{options.map(({ value, text }, index) => (
-						<Option value={value} text={text} key={`index ${index}`} />
-					))}
-				</select>
+				<Select label={label} text={"Department"} arr={options} />
 			</div>
 		);
 	} else if (label === "date-of-birth") {
@@ -37,7 +33,7 @@ const InputWrapper = forwardRef(({ label, text, method }, ref) => {
 			<>
 				<div className="formData">
 					<label htmlFor={label}>{text}</label>
-					<input onFocus={() => setShowCalendar(true)} id={label} type="text" defaultValue={birthDay} />
+					<input autoComplete="none" onFocus={() => setShowCalendar(true)} id={label} type="text" defaultValue={birthDay} />
 					{showCalendar && <Calendar onChange={changeDateBirthday} />}
 				</div>
 			</>
@@ -47,7 +43,7 @@ const InputWrapper = forwardRef(({ label, text, method }, ref) => {
 			<>
 				<div className="formData">
 					<label htmlFor={label}>{text}</label>
-					<input autoComplete="false" onFocus={() => setShowCalendar(true)} id={label} type="text" defaultValue={beginDate} />
+					<input autoComplete="none" onFocus={() => setShowCalendar(true)} id={label} type="text" defaultValue={beginDate} />
 					{showCalendar && <Calendar onChange={changeDateBegin} />}
 				</div>
 			</>

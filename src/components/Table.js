@@ -9,19 +9,18 @@ const Table = () => {
 	const maxEmployee = useSelector((state) => state.maxEmployee);
 	const [boolean, setBoolean] = useState(false);
 	const [indexPagination, setIndexPagination] = useState(0);
+	let arraySplit = [];
+	let pieceOfArray = [];
 
 	const sortArray = (index) => {
 		const keyList = Object.keys(dataEmployee[0]);
 		const propriety = keyList[index];
 		setBoolean(!boolean);
-		if (dataEmployee[0][propriety] < dataEmployee[1][propriety]) {
+		if (dataEmployee[0][propriety] < dataEmployee[4][propriety]) {
 			return dataEmployee.sort((a, b) => b[propriety].localeCompare(a[propriety]));
 		}
 		return dataEmployee.sort((a, b) => a[propriety].localeCompare(b[propriety]));
 	};
-
-	let arraySplit = [];
-	let pieceOfArray = [];
 
 	const sizeListEmployee = dataEmployee.length;
 
@@ -54,9 +53,7 @@ const Table = () => {
 					</tr>
 				</thead>
 				<tbody>
-					{arraySplit[indexPagination].map((data, index) => (
-						<LineEmployee data={data} key={`index ${index}`} />
-					))}
+					{arraySplit.length > 0 && arraySplit[indexPagination].map((data, index) => <LineEmployee data={data} key={`index ${index}`} />)}
 				</tbody>
 			</table>
 			<div className="pagination">

@@ -3,17 +3,18 @@ import { arrayInputsIdentity, arrayInputsAdress } from "../ListingComponents/Lis
 import Fieldset from "../components/Fieldset";
 import Header from "../components/Header";
 import Modal from "../components/Modal";
-import { useSelector, useDispatch } from "react-redux";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { setData } from "../redux/employee";
 
 const CreateEmployee = () => {
+	const [showModal, setShowModal] = useState(false);
+	const inputs = [...document.querySelectorAll("input")];
+
 	const myDispatch = useDispatch();
-	useSelector((state) => console.log(state));
 	const sendData = (e) => {
 		e.preventDefault();
-
-		const inputs = [...document.querySelectorAll("input")];
-		document.querySelector(".modal").classList.remove("no-display");
+		setShowModal(true);
 		const employee = {
 			firstName: inputs[0].value,
 			lastName: inputs[1].value,
@@ -38,7 +39,7 @@ const CreateEmployee = () => {
 					<Fieldset wrapperClass={"fieldset adress"} legend={"Adress"} array={arrayInputsAdress} />
 					<Button nameClass="create-btn" text={"Create"} />
 				</form>
-				<Modal />
+				{showModal && <Modal wxc={setShowModal} />}
 			</section>
 		</>
 	);
