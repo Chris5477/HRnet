@@ -5,23 +5,12 @@ import LineEmployee from "../components/LineEmployee";
 import { useSelector } from "react-redux";
 
 const Table = () => {
-	const dataEmployee = useSelector((state) => state.employee);
+	const dataEmployee = useSelector((state) => state.filteredEmployee);
 	const maxEmployee = useSelector((state) => state.maxEmployee);
-	const [boolean, setBoolean] = useState(false);
+	const [boolean, setBoolean] = useState();
 	const [indexPagination, setIndexPagination] = useState(0);
 	let arraySplit = [];
 	let pieceOfArray = [];
-
-	const sortArray = (index) => {
-		const keyList = Object.keys(dataEmployee[0]);
-		const propriety = keyList[index];
-		setBoolean(!boolean);
-		if (dataEmployee[0][propriety] < dataEmployee[4][propriety]) {
-			return dataEmployee.sort((a, b) => b[propriety].localeCompare(a[propriety]));
-		}
-		return dataEmployee.sort((a, b) => a[propriety].localeCompare(b[propriety]));
-	};
-
 	const sizeListEmployee = dataEmployee.length;
 
 	let i = 0;
@@ -41,6 +30,35 @@ const Table = () => {
 		j++;
 		i++;
 	}
+	// const sortArray = (index) => {
+	// 	const proprieties = Object.keys(arraySplit[indexPagination][0])[index];
+
+	// 	if (dataEmployee)
+	// 		if (dataEmployee[0][proprieties] < dataEmployee[4][proprieties]) {
+	// 			dataEmployee.sort((a, b) => b[proprieties].localeCompare(a[proprieties]));
+	// 		} else {
+	// 			dataEmployee.sort((a, b) => a[proprieties].localeCompare(b[proprieties]));
+	// 		}
+	// 	setBoolean(!boolean);
+	// };
+
+	const sortArray = (index) => {
+		const propriety = Object.keys(arraySplit[indexPagination][0])[index];
+		let array = arraySplit[indexPagination];
+		setBoolean(!boolean);
+
+		if (typeof array[0][propriety] === "number") {
+			return (array =
+				array[0][propriety] < array[3][propriety]
+					? dataEmployee.sort((a, b) => b[propriety] - a[propriety])
+					: dataEmployee.sort((a, b) => a[propriety] - b[propriety]));
+		} else {
+			return (array =
+				array[0][propriety] > array[3][propriety]
+					? dataEmployee.sort((a, b) => a[propriety].localeCompare(b[propriety]))
+					: dataEmployee.sort((a, b) => b[propriety].localeCompare(a[propriety])));
+		}
+	};
 
 	return (
 		<>
@@ -52,6 +70,7 @@ const Table = () => {
 						))}
 					</tr>
 				</thead>
+
 				<tbody>
 					{arraySplit.length > 0 && arraySplit[indexPagination].map((data, index) => <LineEmployee data={data} key={`index ${index}`} />)}
 				</tbody>

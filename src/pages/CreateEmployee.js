@@ -9,10 +9,10 @@ import { setData } from "../redux/employee";
 
 const CreateEmployee = () => {
 	const [showModal, setShowModal] = useState(false);
-	const inputs = [...document.querySelectorAll("input")];
 
 	const myDispatch = useDispatch();
 	const sendData = (e) => {
+		const inputs = [...document.querySelectorAll("input")];
 		e.preventDefault();
 		setShowModal(true);
 		const employee = {
