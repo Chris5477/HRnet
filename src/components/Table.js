@@ -1,4 +1,4 @@
-import { utilsData } from "../ListingComponents/list-util-data";
+import { utilsData } from "../utils/list-util-data";
 import { useState } from "react";
 import TableHead from "../components/TableHead";
 import LineEmployee from "../components/LineEmployee";
@@ -30,31 +30,19 @@ const Table = () => {
 		j++;
 		i++;
 	}
-	// const sortArray = (index) => {
-	// 	const proprieties = Object.keys(arraySplit[indexPagination][0])[index];
-
-	// 	if (dataEmployee)
-	// 		if (dataEmployee[0][proprieties] < dataEmployee[4][proprieties]) {
-	// 			dataEmployee.sort((a, b) => b[proprieties].localeCompare(a[proprieties]));
-	// 		} else {
-	// 			dataEmployee.sort((a, b) => a[proprieties].localeCompare(b[proprieties]));
-	// 		}
-	// 	setBoolean(!boolean);
-	// };
 
 	const sortArray = (index) => {
 		const propriety = Object.keys(arraySplit[indexPagination][0])[index];
 		let array = arraySplit[indexPagination];
 		setBoolean(!boolean);
-
 		if (typeof array[0][propriety] === "number") {
 			return (array =
-				array[0][propriety] < array[3][propriety]
+				array[0][propriety] < array[array.length - 1][propriety]
 					? dataEmployee.sort((a, b) => b[propriety] - a[propriety])
 					: dataEmployee.sort((a, b) => a[propriety] - b[propriety]));
 		} else {
 			return (array =
-				array[0][propriety] > array[3][propriety]
+				array[0][propriety] > array[array.length - 1][propriety]
 					? dataEmployee.sort((a, b) => a[propriety].localeCompare(b[propriety]))
 					: dataEmployee.sort((a, b) => b[propriety].localeCompare(a[propriety])));
 		}

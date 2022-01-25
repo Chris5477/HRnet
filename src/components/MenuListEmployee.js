@@ -1,4 +1,4 @@
-import { listMaxResult } from "../ListingComponents/Listing-option";
+import { listMaxResult } from "../utils/Listing-option";
 import { useRef, useState } from "react";
 import InputWrapper from "./InputWrapper";
 import { useSelector, useDispatch } from "react-redux";
@@ -9,14 +9,14 @@ const MenuListEmployee = () => {
 	const searchRef = useRef();
 	const maxEmployee = useSelector((state) => state.maxEmployee);
 	const myDispatch = useDispatch();
-	const [a, setA] = useState(false);
+	const [boolean, setBoolean] = useState(false);
 
 	const setMaxResult = (e) => {
 		myDispatch(setMaxEmployee(e.target.value));
 	};
 
 	const search = (val) => {
-		setA(!a);
+		setBoolean(!boolean);
 		myDispatch(filterEmployee(val));
 	};
 	return (

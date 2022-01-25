@@ -1,5 +1,5 @@
 import Button from "../components/Button";
-import { arrayInputsIdentity, arrayInputsAdress } from "../ListingComponents/Listing-inputs";
+import { arrayInputsIdentity, arrayInputsAdress } from "../utils/Listing-inputs";
 import Fieldset from "../components/Fieldset";
 import Header from "../components/Header";
 import Modal from "../components/Modal";
@@ -9,27 +9,38 @@ import { setData } from "../redux/employee";
 
 const CreateEmployee = () => {
 	const [showModal, setShowModal] = useState(false);
-
+	const [formMessage, setFormMessage] = useState("");
 	const myDispatch = useDispatch();
-	const sendData = (e) => {
-		const inputs = [...document.querySelectorAll("input")];
-		e.preventDefault();
+
+	const errorValidation = (arr) => {
+		setFormMessage("Veuillez remplir tous les champs du formulaire !");
+		arr.forEach((el) => (!el.value ? (el.className = "error-validation") : el.classList.remove("error-validation")));
+	};
+
+	const succesValidation = (arr) => {
+		setFormMessage("");
 		setShowModal(true);
 		const employee = {
-			firstName: inputs[0].value,
-			lastName: inputs[1].value,
-			begin: inputs[3].value, // A SIMPLIFIER
-			department: document.querySelector("select").value,
-			birthday: inputs[2].value,
-			street: inputs[4].value,
-			city: inputs[5].value,
-			state: inputs[6].value,
-			zip: inputs[7].value,
+			firstName: arr[0].value,
+			lastName: arr[1].value,
+			begin: arr[3].value, // A SIMPLIFIER
+			department: arr[4].value,
+			birthday: arr[2].value,
+			street: arr[5].value,
+			city: arr[6].value,
+			state: arr[7].value,
+			zip: arr[8].value,
 		};
 
 		myDispatch(setData(employee));
 	};
 
+	const sendData = (e) => {
+		e.preventDefault();
+		const inputs = [...document.querySelectorAll("input")];
+		inputs.splice(4, 0, document.querySelector("select"));
+		inputs.find((el) => !el.value) ? errorValidation(inputs) : succesValidation(inputs);
+	};
 	return (
 		<>
 			<Header />
@@ -39,6 +50,7 @@ const CreateEmployee = () => {
 					<Fieldset wrapperClass={"fieldset adress"} legend={"Adress"} array={arrayInputsAdress} />
 					<Button nameClass="create-btn" text={"Create"} />
 				</form>
+				<p className="validator">{formMessage}</p>
 				{showModal && <Modal wxc={setShowModal} />}
 			</section>
 		</>

@@ -8,7 +8,9 @@ const ListEmployee = () => {
 			<h2>Current Employees</h2>
 			<MenuListEmployee />
 			<Table />
-			<Link to="/">Home</Link>
+			<Link className="link-home" to="/">
+				Home
+			</Link>
 		</div>
 	);
 };

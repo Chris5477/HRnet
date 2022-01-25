@@ -242,8 +242,39 @@ tr:nth-child(even) {
 
 .pagination {
 	width: 60%;
-	height: auto;
+	height: 50px;
+	margin-top: 40px;
 	display: inline-flex;
 	justify-content: space-around;
 	font-size: 20px;
+}
+
+.pagination > span {
+	cursor: pointer;
+	padding: 15px;
+}
+
+.pagination span:hover {
+	transform: scale(1.8);
+	text-decoration: underline;
+	text-decoration-thickness: 3px;
+	transition: 0.5s;
+}
+
+.error-validation {
+	border: 2px solid red;
+}
+
+.validator {
+	color: red;
+	font-size: 20px;
+	padding: 5px;
+	text-align: center;
+}
+
+.link-home {
+	font-size: 25px;
+	color: black;
+	text-decoration: none;
+	margin: 50px 0px 30px;
 }
