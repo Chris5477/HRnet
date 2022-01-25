@@ -2,7 +2,7 @@ import { options } from "../utils/Listing-option";
 import Calendar from "react-calendar";
 import { forwardRef, useState } from "react";
 import "react-calendar/dist/Calendar.css";
-import Select from "./Select";
+import Select from "@chris5477/scroll-menu/dist/components/Select";
 
 const InputWrapper = forwardRef(({ label, text, method }, ref) => {
 	const [birthDay, setbirthDay] = useState("");
@@ -24,7 +24,7 @@ const InputWrapper = forwardRef(({ label, text, method }, ref) => {
 	if (label === "Department") {
 		input = (
 			<div className="formData">
-				<Select label={label} text={"Department"} arr={options} />
+				<Select textLabel={label} arr={options} />
 			</div>
 		);
 	} else if (label === "date-of-birth") {

@@ -23,6 +23,8 @@ const Table = () => {
 			j = 0;
 		} else if (i + 1 == sizeListEmployee) {
 			arraySplit.push(pieceOfArray);
+		} else if (maxEmployee == "") {
+			return dataEmployee;
 		}
 
 		pieceOfArray.push(dataEmployee[i]);
