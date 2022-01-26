@@ -13,19 +13,15 @@ const Table = () => {
 	let pieceOfArray = [];
 	const sizeListEmployee = dataEmployee.length;
 	let i = 0;
-
 	while (i <= sizeListEmployee) {
 		if (pieceOfArray.length == maxEmployee) {
 			arraySplit.push(pieceOfArray);
 			pieceOfArray = [];
 		} else if (i == sizeListEmployee) {
 			arraySplit.push(pieceOfArray);
-
 			break;
 		}
-
 		pieceOfArray.push(dataEmployee[i]);
-
 		i++;
 	}
 
@@ -40,11 +36,13 @@ const Table = () => {
 					: dataEmployee.sort((a, b) => a[propriety] - b[propriety]));
 		} else {
 			return (array =
-				array[0][propriety] > array[array.length - 1][propriety]
+				String(array[0][propriety]).toLowerCase() > String(array[array.length - 1][propriety].toLowerCase())
 					? dataEmployee.sort((a, b) => a[propriety].localeCompare(b[propriety]))
 					: dataEmployee.sort((a, b) => b[propriety].localeCompare(a[propriety])));
 		}
 	};
+
+	const validArray = arraySplit[indexPagination] == undefined ? dataEmployee : arraySplit[indexPagination];
 
 	return (
 		<>
@@ -58,7 +56,9 @@ const Table = () => {
 				</thead>
 
 				<tbody>
-					{arraySplit.length > 0 && arraySplit[indexPagination].map((data, index) => <LineEmployee data={data} key={`index ${index}`} />)}
+					{validArray.map((data, index) => (
+						<LineEmployee data={data} key={`index ${index}`} />
+					))}
 				</tbody>
 			</table>
 			<div className="pagination">

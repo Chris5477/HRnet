@@ -12,7 +12,7 @@
 /build
 
 #mock 
-/src/utils/__mock.employee.js
+/src/utils/__mock_employee.js
 
 # misc
 .DS_Store
