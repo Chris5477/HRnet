@@ -11,7 +11,6 @@ const MenuListEmployee = () => {
 	const maxEmployee = useSelector((state) => state.maxEmployee);
 	const myDispatch = useDispatch();
 	const [boolean, setBoolean] = useState(false);
-
 	const setMaxResult = (e) => {
 		myDispatch(setMaxEmployee(e.target.value));
 	};

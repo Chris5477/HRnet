@@ -12,24 +12,20 @@ const Table = () => {
 	let arraySplit = [];
 	let pieceOfArray = [];
 	const sizeListEmployee = dataEmployee.length;
-
 	let i = 0;
-	let j = 0;
 
-	while (i < sizeListEmployee) {
-		if (j == maxEmployee) {
+	while (i <= sizeListEmployee) {
+		if (pieceOfArray.length == maxEmployee) {
 			arraySplit.push(pieceOfArray);
 			pieceOfArray = [];
-			j = 0;
-		} else if (i + 1 == sizeListEmployee) {
+		} else if (i == sizeListEmployee) {
 			arraySplit.push(pieceOfArray);
-		} else if (maxEmployee == "") {
-			return dataEmployee;
+
+			break;
 		}
 
 		pieceOfArray.push(dataEmployee[i]);
 
-		j++;
 		i++;
 	}
 
