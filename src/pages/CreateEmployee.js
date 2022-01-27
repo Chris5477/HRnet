@@ -42,8 +42,8 @@ const CreateEmployee = () => {
 			<Header />
 			<section className="container">
 				<form id="create-employee" onSubmit={(e) => sendData(e)}>
-					<Fieldset wrapperClass={" fieldset employee"} legend={"Employee"} array={arrayInputsIdentity} />
-					<Fieldset wrapperClass={"fieldset adress"} legend={"Adress"} array={arrayInputsAdress} />
+					<Fieldset wrapperClass={"fieldset"} legend={"Employee"} array={arrayInputsIdentity} />
+					<Fieldset wrapperClass={"fieldset"} legend={"Adress"} array={arrayInputsAdress} />
 					<Button nameClass="create-btn" text={"Create"} />
 				</form>
 				<p className="validator">{formMessage}</p>
