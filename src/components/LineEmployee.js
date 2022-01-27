@@ -3,7 +3,9 @@ const LineEmployee = ({ data }) => {
 	return (
 		<tr>
 			{listEmployee.map((data, index) => (
-				<td key={`index ${index}`}>{data}</td>
+				<td className="line-employee" key={`index ${index}`}>
+					{data}
+				</td>
 			))}
 		</tr>
 	);

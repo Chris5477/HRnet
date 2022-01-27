@@ -39,7 +39,7 @@ const CreateEmployee = () => {
 	};
 	return (
 		<>
-			<Header />
+			<Header link={"/employee-list"} text={"View Current Employees"} />
 			<section className="container">
 				<form id="create-employee" onSubmit={(e) => sendData(e)}>
 					<Fieldset wrapperClass={"fieldset"} legend={"Employee"} array={arrayInputsIdentity} />

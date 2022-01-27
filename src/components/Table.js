@@ -46,7 +46,7 @@ const Table = () => {
 
 	return (
 		<>
-			<table id="employee-table" className="display">
+			<table id="employee-table" className="table">
 				<thead>
 					<tr>
 						{utilsData.map((element, index) => (

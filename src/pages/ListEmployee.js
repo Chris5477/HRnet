@@ -1,16 +1,15 @@
 import { Link } from "react-router-dom";
 import Table from "../components/Table";
 import MenuListEmployee from "../components/MenuListEmployee";
+import Header from "../components/Header";
 
 const ListEmployee = () => {
 	return (
 		<div id="employee-div" className="containerList">
-			<h2>Current Employees</h2>
+			<Header link={"/"} text={"Home"} />
+			<h2 className="subtitle">Current Employees</h2>
 			<MenuListEmployee />
 			<Table />
-			<Link className="link-home" to="/">
-				Home
-			</Link>
 		</div>
 	);
 };
