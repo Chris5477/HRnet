@@ -17,7 +17,7 @@ const Table = () => {
 		if (pieceOfArray.length == maxEmployee) {
 			arraySplit.push(pieceOfArray);
 			pieceOfArray = [];
-		} else if (i == sizeListEmployee) {
+		} else if (i === sizeListEmployee) {
 			arraySplit.push(pieceOfArray);
 			break;
 		}

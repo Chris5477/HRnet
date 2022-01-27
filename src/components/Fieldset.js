@@ -7,7 +7,7 @@ const Fieldset = ({ wrapperClass, legend, array }) => {
 			{array.map(({ label, text }, index) => (
 				<InputWrapper label={label} text={text} key={`index + ${index}`} />
 			))}
-			{legend == "Employee" && <InputWrapper label={"Department"} text={"Department"} />}
+			{legend === "Employee" && <InputWrapper label={"Department"} text={"Department"} />}
 		</fieldset>
 	);
 };

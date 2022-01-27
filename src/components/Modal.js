@@ -2,12 +2,12 @@ import { createPortal } from "react-dom";
 import Button from "./Button";
 import { useState } from "react";
 
-const Modal = ({ wxc }) => {
+const Modal = ({ props }) => {
 	const [visibilityModal, setVisibilityModal] = useState(true);
 
-	const aaa = () => {
+	const closeModal = () => {
 		setVisibilityModal(false);
-		wxc(false);
+		props(false);
 	};
 
 	return createPortal(
@@ -16,7 +16,7 @@ const Modal = ({ wxc }) => {
 				<div className="modal">
 					<div className="content-modal">
 						<p>Employee Created</p>
-						<Button methods={aaa} nameClass="round-btn" text="X" />
+						<Button methods={closeModal} nameClass="round-btn" text="X" />
 					</div>
 				</div>
 			)}

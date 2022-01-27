@@ -47,7 +47,7 @@ const CreateEmployee = () => {
 					<Button nameClass="create-btn" text={"Create"} />
 				</form>
 				<p className="validator">{formMessage}</p>
-				{showModal && <Modal wxc={setShowModal} />}
+				{showModal && <Modal props={setShowModal} />}
 			</section>
 		</>
 	);

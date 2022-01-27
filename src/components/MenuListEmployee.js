@@ -22,16 +22,11 @@ const MenuListEmployee = () => {
 	return (
 		<div className="menu-list-employee">
 			<span>
-				Show <Select handleChange={(e) => setMaxResult(e)} value={maxEmployee} arr={listMaxResult} /> entries
+				Show <Select selectClass={"select-index"} handleChange={(e) => setMaxResult(e)} value={maxEmployee} arr={listMaxResult} /> entries
 			</span>
 			<span>Total employee : {totalEmployee}</span>
-
 			<InputWrapper ref={searchRef} method={(val) => search(val)} label={"search"} text={"Search"} />
 		</div>
 	);
 };
 export default MenuListEmployee;
-
-{
-	/* <Select method={(e) => setMaxResult(e)} value={maxEmployee} arr={listMaxResult} /> */
-}
