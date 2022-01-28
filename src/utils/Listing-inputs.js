@@ -10,12 +10,12 @@ export const arrayInputsIdentity = [
 		value: "",
 	},
 	{
-		label: "date-of-birth",
+		label: "birthday",
 		text: "Date of Birth",
 		value: "",
 	},
 	{
-		label: "start-date",
+		label: "begin",
 		text: "Start Date",
 		value: "",
 	},
@@ -45,3 +45,5 @@ export const arrayInputsAdress = [
 		value: "",
 	},
 ];
+
+export const utilsData = ["First Name", "Last Name", "Start Date", "Department", "Date of Birthday", "Street", "City", "State", "ZIP code"];

@@ -1,8 +1,9 @@
 const LineEmployee = ({ data }) => {
-	const listEmployee = Object.values(data);
+	const { firstName, lastName, begin, department, birthday, street, city, state, zip } = data;
+	const listData = [firstName, lastName, begin, department, birthday, street, city, state, zip];
 	return (
 		<tr>
-			{listEmployee.map((data, index) => (
+			{listData.map((data, index) => (
 				<td className="line-employee" key={`index ${index}`}>
 					{data}
 				</td>

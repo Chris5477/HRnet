@@ -1,4 +1,4 @@
-import { utilsData } from "../utils/list-util-data";
+import { utilsData } from "../utils/Listing-inputs";
 import { useState } from "react";
 import TableHead from "../components/TableHead";
 import LineEmployee from "../components/LineEmployee";

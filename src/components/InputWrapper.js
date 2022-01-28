@@ -27,7 +27,7 @@ const InputWrapper = forwardRef(({ label, text, method }, ref) => {
 				<Select textLabel={label} arr={options} />
 			</div>
 		);
-	} else if (label === "date-of-birth") {
+	} else if (label === "birthday") {
 		input = (
 			<>
 				<div className="formData">
@@ -37,7 +37,7 @@ const InputWrapper = forwardRef(({ label, text, method }, ref) => {
 				</div>
 			</>
 		);
-	} else if (label === "start-date") {
+	} else if (label === "") {
 		input = (
 			<>
 				<div className="formData">

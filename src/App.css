@@ -4,28 +4,6 @@ body {
 	width: 100%;
 	height: 100vh;
 	background-image: linear-gradient(to right top, #c0cde9, #abc0ef, #95b3f5, #80a5fa, #6997ff);
-	font-family: "caudexregular";
-}
-
-@font-face {
-	font-family: "caudexregular";
-	src: url("assets/police/caudex-regular-webfont.woff2") format("woff2"), url("assets/police/caudex-regular-webfont.woff") format("woff");
-	font-weight: normal;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: "quattrocento_romanregular";
-	src: url("assets/police/quattrocento-regular-webfont.woff2") format("woff2"),
-		url("assets/police/quattrocento-regular-webfont.woff") format("woff");
-	font-weight: normal;
-	font-style: normal;
-}
-
-/* HEADER ---------------------------------------------------- */
-
-h1 {
-	font-family: "quattrocento_romanregula";
 }
 
 .header {
