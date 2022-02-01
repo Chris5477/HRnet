@@ -63,7 +63,7 @@ const Table = () => {
 			</table>
 			<div className="pagination">
 				{arraySplit.map((_, index) => (
-					<span onClick={() => setIndexPagination(index)} key={`index ${index}`}>
+					<span className={index === indexPagination && "activeSpan"} onClick={() => setIndexPagination(index)} key={`index ${index}`}>
 						{index + 1}
 					</span>
 				))}

@@ -1068,10 +1068,10 @@
   "resolved" "https://registry.npmjs.org/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz"
   "version" "0.2.3"
 
-"@chris5477/scroll-menu@^0.1.5":
-  "integrity" "sha512-gjeLNumxjxYZmGzjH4aMC5m2RN3ZwgCMaC9mCIRB1xKv0YLDs7vBSTM43y5LNK2wHya+smyU4PibT9c22XtOiA=="
-  "resolved" "https://registry.npmjs.org/@chris5477/scroll-menu/-/scroll-menu-0.1.5.tgz"
-  "version" "0.1.5"
+"@chris5477/scroll-menu@^0.1.9":
+  "integrity" "sha512-TNXvKKYhJQZPnZHC1vayv8iR3ydqEt3eVFxZ2SvE8zupnWuK7R5BSuqTm9+VDQDSHMi6jZ6CXKCoD8fXvhJlCg=="
+  "resolved" "https://registry.npmjs.org/@chris5477/scroll-menu/-/scroll-menu-0.1.9.tgz"
+  "version" "0.1.9"
   dependencies:
     "@babel/polyfill" "^7.12.1"
     "@testing-library/jest-dom" "^5.16.1"

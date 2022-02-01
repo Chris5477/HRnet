@@ -13,7 +13,7 @@ const CreateEmployee = () => {
 	const store = useSelector((state) => state);
 	const myDispatch = useDispatch();
 
-	useEffect(() => (store.filteredEmployee = store.employee), []);
+	useEffect(() => (store.filteredEmployee = store.employee), [store]);
 	const completeList = arrayInputsIdentity.concat([{ label: "department", value: "" }], arrayInputsAdress);
 
 	const errorValidation = (arr) => {

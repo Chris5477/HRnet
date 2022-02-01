@@ -138,6 +138,9 @@ body {
 	height: 120px;
 	border-radius: 50%;
 	background-color: #f2f2f2;
+}
+
+.create-btn:hover::after {
 	animation: pulse 0.8s ease-in-out infinite;
 }
 
@@ -246,8 +249,14 @@ tbody tr:nth-child(even) {
 
 .pagination span:hover {
 	transform: scale(1.4);
-	transition: 0.2s;
 	background-color: #e7e7e7;
+	border-radius: 0;
+	transition: 0.2s;
+}
+
+.activeSpan {
+	background-color: #e7e7e7;
+	border-radius: 50%;
 }
 
 /* Modal ----------------------------------------------------------------*/
