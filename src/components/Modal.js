@@ -21,7 +21,7 @@ const Modal = ({ props }) => {
 				</div>
 			)}
 		</>,
-		document.getElementById("modal")
+		document.body
 	);
 };
 export default Modal;

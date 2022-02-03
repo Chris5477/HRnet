@@ -1,7 +1,8 @@
+/* istanbul ignore file */
 export const options = [
 	{
-		value: "",
-		text: "",
+		value: true,
+		text: "Choisir un département",
 	},
 	{
 		value: "sales",

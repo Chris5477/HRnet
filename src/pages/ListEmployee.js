@@ -5,7 +5,7 @@ import Header from "../components/Header";
 const ListEmployee = () => {
 	return (
 		<div id="employee-div" className="containerList">
-			<Header link={"/"} text={"Home"} />
+			<Header link={"/"} text={"Home"} title={"List Employee"} />
 			<h2 className="subtitle">Current Employees</h2>
 			<MenuListEmployee />
 			<Table />

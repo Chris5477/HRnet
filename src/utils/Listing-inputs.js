@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 export const arrayInputsIdentity = [
 	{
 		label: "firstName",
@@ -40,7 +42,7 @@ export const arrayInputsAdress = [
 		value: "",
 	},
 	{
-		label: "zip-code",
+		label: "zip",
 		text: "Zip Code",
 		value: "",
 	},

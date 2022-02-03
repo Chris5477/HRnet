@@ -29,19 +29,13 @@ const Table = () => {
 		const propriety = Object.keys(arraySplit[indexPagination][0])[index];
 		let array = arraySplit[indexPagination];
 		setBoolean(!boolean);
-		if (typeof array[0][propriety] === "number") {
-			return (array =
-				array[0][propriety] < array[array.length - 1][propriety]
-					? dataEmployee.sort((a, b) => b[propriety] - a[propriety])
-					: dataEmployee.sort((a, b) => a[propriety] - b[propriety]));
-		} else {
-			return (array =
-				String(array[0][propriety]).toLowerCase() > String(array[array.length - 1][propriety].toLowerCase())
-					? dataEmployee.sort((a, b) => a[propriety].localeCompare(b[propriety]))
-					: dataEmployee.sort((a, b) => b[propriety].localeCompare(a[propriety])));
-		}
+		return (array =
+			String(array[0][propriety]).toLowerCase() > String(array[array.length - 1][propriety].toLowerCase())
+				? dataEmployee.sort((a, b) => a[propriety].localeCompare(b[propriety]))
+				: dataEmployee.sort((a, b) => b[propriety].localeCompare(a[propriety])));
 	};
 
+	/* istanbul ignore next */
 	const validArray = arraySplit[indexPagination] == undefined ? dataEmployee : arraySplit[indexPagination];
 
 	return (
@@ -63,7 +57,11 @@ const Table = () => {
 			</table>
 			<div className="pagination">
 				{arraySplit.map((_, index) => (
-					<span className={index === indexPagination && "activeSpan"} onClick={() => setIndexPagination(index)} key={`index ${index}`}>
+					<span
+						className={index === indexPagination ? "activeSpan" : null}
+						onClick={() => setIndexPagination(index)}
+						key={`index ${index}`}
+					>
 						{index + 1}
 					</span>
 				))}

@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { CREATE_EMPLOYEE, FILTERED_EMPLOYEE, MAX_RESULT_EMPLOYEE } from "./employee";
 
 const initialState = {

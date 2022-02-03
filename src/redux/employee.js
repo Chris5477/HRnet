@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 export const CREATE_EMPLOYEE = "CREATE_EMPLOYEE";
 export const MAX_RESULT_EMPLOYEE = "MAX_RESULT_EMPLOYEE";
 export const FILTERED_EMPLOYEE = "FILTERED_EMPLOYEE";

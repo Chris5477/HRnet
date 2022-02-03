@@ -37,7 +37,7 @@ const InputWrapper = forwardRef(({ label, text, method }, ref) => {
 				</div>
 			</>
 		);
-	} else if (label === "") {
+	} else if (label === "begin") {
 		input = (
 			<>
 				<div className="formData">
