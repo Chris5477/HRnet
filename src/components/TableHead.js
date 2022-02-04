@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 const TableHead = ({ value, method }) => {
 	return (
 		<th onClick={() => method()} className={"table-head"}>
@@ -8,5 +9,9 @@ const TableHead = ({ value, method }) => {
 			</div>
 		</th>
 	);
+};
+TableHead.propTypes = {
+	value: PropTypes.string.isRequired,
+	method: PropTypes.func.isRequired,
 };
 export default TableHead;

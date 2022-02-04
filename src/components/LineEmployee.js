@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 const LineEmployee = ({ data }) => {
 	const { firstName, lastName, begin, department, birthday, street, city, state, zip } = data;
 	const listData = [firstName, lastName, begin, department, birthday, street, city, state, zip];
@@ -10,5 +11,8 @@ const LineEmployee = ({ data }) => {
 			))}
 		</tr>
 	);
+};
+LineEmployee.propTypes = {
+	data: PropTypes.object.isRequired,
 };
 export default LineEmployee;

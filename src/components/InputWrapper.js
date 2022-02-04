@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { options } from "../utils/Listing-option";
 import Calendar from "react-calendar";
 import { forwardRef, useState } from "react";
@@ -58,4 +59,10 @@ const InputWrapper = forwardRef(({ label, text, method }, ref) => {
 
 	return <>{input}</>;
 });
+
+InputWrapper.propTypes = {
+	label: PropTypes.string.isRequired,
+	text: PropTypes.string.isRequired,
+	method: PropTypes.func,
+};
 export default InputWrapper;

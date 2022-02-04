@@ -1,3 +1,4 @@
+import PropTypes, { string } from "prop-types";
 import InputWrapper from "./InputWrapper";
 
 const Fieldset = ({ wrapperClass, legend, array }) => {
@@ -10,5 +11,11 @@ const Fieldset = ({ wrapperClass, legend, array }) => {
 			{legend === "Employee" && <InputWrapper label={"Department"} text={"Department"} />}
 		</fieldset>
 	);
+};
+
+Fieldset.propTypes = {
+	wrapperClass: PropTypes.string,
+	legend: PropTypes.string.isRequired,
+	array: PropTypes.array.isRequired,
 };
 export default Fieldset;

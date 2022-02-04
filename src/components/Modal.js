@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { createPortal } from "react-dom";
 import Button from "./Button";
 import { useState } from "react";
@@ -24,4 +25,8 @@ const Modal = ({ props }) => {
 		document.body
 	);
 };
+Modal.propTypes = {
+	props: PropTypes.func.isRequired,
+};
+
 export default Modal;
