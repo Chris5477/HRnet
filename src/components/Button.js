@@ -1,4 +1,7 @@
 import PropTypes from "prop-types";
+
+/* CREATE A REUSABLE COMPONENT BUTTON */
+
 const Button = ({ nameClass, methods, text }) => {
 	return (
 		<button className={nameClass} onClick={methods && methods}>

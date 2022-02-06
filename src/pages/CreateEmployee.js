@@ -7,20 +7,32 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setData } from "../redux/employee";
 
+/* CREATE CREATEEMPLOYEE COMPONENT AS PAGE , OR HOME PAGE */
+
 const CreateEmployee = () => {
 	const [showModal, setShowModal] = useState(false);
 	const [formMessage, setFormMessage] = useState("");
 	const store = useSelector((state) => state);
 	const myDispatch = useDispatch();
 
-	useEffect(() => (store.filteredEmployee = store.employee), [store]);
+	/* ALLOWS RESET RESEARCH TO SHOW ALL EMPLOYEE ON LISTEMPLOYEE PAGE */
+
+	useEffect(() => {
+		store.filteredEmployee = store.employee;
+		store.maxEmployee = Math.max();
+	}, [store]);
+
+	/* ALLOWS ADD SELECT ELEMENT ON LIST INPUT ELEMENT */
+
 	const completeList = arrayInputsIdentity.concat([{ label: "department", value: "" }], arrayInputsAdress);
 
+	/* ALLOWS TO REFUSE EMPLOYEE CREATION IF ONE OR MORE FORM FIELDS ARE MISSING */
 	const errorValidation = (arr) => {
 		setFormMessage("Veuillez remplir tous les champs du formulaire !");
 		arr.forEach((el) => (!el.value ? (el.className = "error-validation") : el.classList.remove("error-validation")));
 	};
 
+	/* CREATE A NEW EMPLOYEE ON THE STORE AND CREATE A MODAL */
 	const succesValidation = (arr) => {
 		setFormMessage("");
 		setShowModal(true);
@@ -31,6 +43,7 @@ const CreateEmployee = () => {
 		myDispatch(setData(res));
 	};
 
+	/* ALLOWS TO MANAGE FORMS */
 	const sendData = (e) => {
 		e.preventDefault();
 		const inputs = [...document.querySelectorAll("input")];

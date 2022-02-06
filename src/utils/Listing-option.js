@@ -28,7 +28,7 @@ export const options = [
 
 export const listMaxResult = [
 	{
-		value: "",
+		value: Math.max(),
 		text: "All",
 	},
 	{

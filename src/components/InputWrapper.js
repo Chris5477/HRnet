@@ -5,22 +5,32 @@ import { forwardRef, useState } from "react";
 import "react-calendar/dist/Calendar.css";
 import Select from "@chris5477/scroll-menu/dist/components/Select";
 
+/* CREATE A RESUABLE COMPONENT INPUT */
+
 const InputWrapper = forwardRef(({ label, text, method }, ref) => {
+	/* SET VALUE OF INPUT WHICH NEED SPECIAL TREATMENT */
+
 	const [birthDay, setbirthDay] = useState("");
 	const [beginDate, setbeginDate] = useState("");
 	const [showCalendar, setShowCalendar] = useState(false);
 
-	const changeDateBirthday = (v) => {
-		setbirthDay(String(v).split(" ").splice(1, 3).join("/"));
+	/* ALLOWS TO SET A BIRTHDAY DATE AND CLOSE CALENDAR */
+
+	const changeDateBirthday = (date) => {
+		setbirthDay(String(date).split(" ").splice(1, 3).join("/"));
 		setShowCalendar(false);
 	};
 
-	const changeDateBegin = (v) => {
-		setbeginDate(String(v).split(" ").splice(1, 3).join("/"));
+	/* ALLOWS TO SET A BEGIN DATE AND CLOSE CALENDAR */
+
+	const changeDateBegin = (date) => {
+		setbeginDate(String(date).split(" ").splice(1, 3).join("/"));
 		setShowCalendar(false);
 	};
 
 	let input = null;
+
+	/* IF LABEL IS EQUAL TO DEPARTMENT , THEN USE SELECT ELEMENT */
 
 	if (label === "Department") {
 		input = (
@@ -28,6 +38,8 @@ const InputWrapper = forwardRef(({ label, text, method }, ref) => {
 				<Select textLabel={label} arr={options} />
 			</div>
 		);
+
+		/* IF LABEL IS EQUAL TO BIRTHDAY , THEN USE CALENDAR COMPONENT */
 	} else if (label === "birthday") {
 		input = (
 			<>
@@ -48,6 +60,8 @@ const InputWrapper = forwardRef(({ label, text, method }, ref) => {
 				</div>
 			</>
 		);
+
+		/* ELSE WE USE A CLASSIC INPUT */
 	} else {
 		input = (
 			<div className="formData">

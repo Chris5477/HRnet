@@ -1,6 +1,9 @@
 import PropTypes, { string } from "prop-types";
 import InputWrapper from "./InputWrapper";
 
+/* CREATE A REUSABLE COMPONENT FILEDSET 
+	SHOW A LIST OF INPUT */
+
 const Fieldset = ({ wrapperClass, legend, array }) => {
 	return (
 		<fieldset className={wrapperClass}>

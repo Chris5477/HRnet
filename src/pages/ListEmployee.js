@@ -2,6 +2,8 @@ import Table from "../components/Table";
 import MenuListEmployee from "../components/MenuListEmployee";
 import Header from "../components/Header";
 
+/* CREATE A LISTEMPLOYEE COMPONENT AS PAGE -- LISTINGEMPLOYEE */
+
 const ListEmployee = () => {
 	return (
 		<div id="employee-div" className="containerList">

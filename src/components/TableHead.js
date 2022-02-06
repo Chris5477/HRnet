@@ -1,4 +1,7 @@
 import PropTypes from "prop-types";
+
+/* CREATE A COMPONENT TABLEHEAD USING TH ELEMENT HTML */
+
 const TableHead = ({ value, method }) => {
 	return (
 		<th onClick={() => method()} className={"table-head"}>

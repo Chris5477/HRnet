@@ -1,6 +1,8 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
+/* CREATE A REUSABLE COMPONENT HEADER TO SHOW TITLE AND CONTAINS NAVIGATION */
+
 const Header = ({ link, text, title }) => {
 	return (
 		<header className="header">

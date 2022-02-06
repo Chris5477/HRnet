@@ -3,9 +3,13 @@ import { createPortal } from "react-dom";
 import Button from "./Button";
 import { useState } from "react";
 
+/* CREATE A PORTAL TO SHOW A MODAL ON NAVIGATOR */
+
 const Modal = ({ props }) => {
+	/* SET A BOOLEAN TO SHOW OR NOT THE MODAL */
 	const [visibilityModal, setVisibilityModal] = useState(true);
 
+	/* ALLOWS TO CLOSE MODAL */
 	const closeModal = () => {
 		setVisibilityModal(false);
 		props(false);
