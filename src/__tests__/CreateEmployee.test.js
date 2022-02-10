@@ -1,10 +1,10 @@
 import CreateEmployee from "../pages/CreateEmployee";
-import { fireEvent, getByRole, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
 import { store } from "../redux/store";
-import { BrowserRouter, useResolvedPath } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 describe("Testing CreateEmployee component", () => {
 	beforeEach(() =>
@@ -27,6 +27,7 @@ describe("Testing CreateEmployee component", () => {
 	test("Should call errorValidation function", () => {
 		const inputs = [...document.querySelectorAll("input")];
 		inputs.push(document.querySelector("select"));
+		const select = document.querySelector("select");
 		const btn = document.querySelector("button");
 		fireEvent.click(btn);
 		const errorMessage = screen.getAllByText("Veuillez remplir tous les champs du formulaire !");
@@ -40,7 +41,6 @@ describe("Testing CreateEmployee component", () => {
 		const option = document.querySelector("select option:nth-child(2)");
 		inputs.push(select);
 		inputs.forEach((el) => (el.value = "ok"));
-		inputs.forEach((el) => console.log(el.value));
 		userEvent.selectOptions(select, option, { value: "sales" });
 		const btn = screen.getByText("Create");
 		fireEvent.click(btn);

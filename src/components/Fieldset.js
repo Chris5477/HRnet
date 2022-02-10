@@ -1,4 +1,4 @@
-import PropTypes, { string } from "prop-types";
+import PropTypes from "prop-types";
 import InputWrapper from "./InputWrapper";
 
 /* CREATE A REUSABLE COMPONENT FILEDSET 

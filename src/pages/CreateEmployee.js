@@ -45,12 +45,13 @@ const CreateEmployee = () => {
 
 	/* ALLOWS TO MANAGE FORMS */
 	const sendData = (e) => {
-		if (document.querySelector("select").value == "Choisir un département") {
-			document.querySelector("select").value = "";
-		}
+		const select = document.querySelector("select");
 		e.preventDefault();
+		if (select.value === "Choisir un département") {
+			select.value = "";
+		}
 		const inputs = [...document.querySelectorAll("input")];
-		inputs.splice(4, 0, document.querySelector("select"));
+		inputs.splice(4, 0, select);
 		inputs.find((el) => !el.value) ? errorValidation(inputs) : succesValidation(inputs);
 	};
 	return (

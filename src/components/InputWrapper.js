@@ -1,8 +1,7 @@
 import PropTypes from "prop-types";
 import { options } from "../utils/Listing-option";
-import Calendar from "react-calendar";
+import Calendar from "../components/Calendar";
 import { forwardRef, useState } from "react";
-import "react-calendar/dist/Calendar.css";
 import Select from "@chris5477/scroll-menu/dist/components/Select";
 
 /* CREATE A RESUABLE COMPONENT INPUT */
@@ -10,32 +9,21 @@ import Select from "@chris5477/scroll-menu/dist/components/Select";
 const InputWrapper = forwardRef(({ label, text, method }, ref) => {
 	/* SET VALUE OF INPUT WHICH NEED SPECIAL TREATMENT */
 
-	const [birthDay, setbirthDay] = useState("");
-	const [beginDate, setbeginDate] = useState("");
+	const [birthDay, setBirthday] = useState("");
+	const [beginDate, setBeginDate] = useState("");
 	const [showCalendar, setShowCalendar] = useState(false);
-
-	const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 	/* ALLOWS TO SET A BIRTHDAY DATE AND CLOSE CALENDAR */
 
-	const formatDate = (date) => {
-		const [month, day, year] = String(date).split(" ").splice(1, 3);
-		const indexMonth = months.indexOf(month) + 1;
-		const formatMonth = String(indexMonth).length == 1 ? "0" + indexMonth : indexMonth;
-		return `${year}/${formatMonth}/${day}`;
-	};
-
 	const changeDateBirthday = (date) => {
-		const birthdayDate = formatDate(date);
-		setbirthDay(birthdayDate);
+		setBirthday(date);
 		setShowCalendar(false);
 	};
 
 	/* ALLOWS TO SET A BEGIN DATE AND CLOSE CALENDAR */
 
 	const changeDateBegin = (date) => {
-		const beginDate = formatDate(date);
-		setbeginDate(beginDate);
+		setBeginDate(date);
 		setShowCalendar(false);
 	};
 
@@ -57,7 +45,7 @@ const InputWrapper = forwardRef(({ label, text, method }, ref) => {
 				<div className="formData">
 					<label htmlFor={label}>{text}</label>
 					<input autoComplete="none" onFocus={() => setShowCalendar(true)} id={label} type="text" defaultValue={birthDay} />
-					{showCalendar && <Calendar onChange={changeDateBirthday} />}
+					{showCalendar && <Calendar setter={changeDateBirthday} />}
 				</div>
 			</>
 		);
@@ -67,7 +55,7 @@ const InputWrapper = forwardRef(({ label, text, method }, ref) => {
 				<div className="formData">
 					<label htmlFor={label}>{text}</label>
 					<input autoComplete="none" onFocus={() => setShowCalendar(true)} id={label} type="text" defaultValue={beginDate} />
-					{showCalendar && <Calendar onChange={changeDateBegin} />}
+					{showCalendar && <Calendar setter={changeDateBegin} />}
 				</div>
 			</>
 		);

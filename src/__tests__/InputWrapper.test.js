@@ -13,10 +13,10 @@ describe("Testing component InputWrapper", () => {
 		render(<InputWrapper label={"birthday"} text={"text"} method={() => null} />);
 		const input = document.querySelector("input");
 		fireEvent.focus(input);
-		const content = screen.getAllByText("February 2022");
+		const content = screen.getAllByText("February");
 		expect(content).toBeTruthy();
-		const btn = [...document.querySelectorAll("button")];
-		fireEvent.click(btn[25]);
+		const btnDay = [...document.querySelectorAll(".day-of-month")];
+		fireEvent.click(btnDay[25]);
 		expect(input.value).not.toBeNull();
 	});
 
@@ -24,10 +24,10 @@ describe("Testing component InputWrapper", () => {
 		render(<InputWrapper label={"begin"} text={"text"} method={() => null} />);
 		const input = document.querySelector("input");
 		fireEvent.focus(input);
-		const content = screen.getAllByText("February 2022");
+		const content = screen.getAllByText("February");
 		expect(content).toBeTruthy();
-		const btn = [...document.querySelectorAll("button")];
-		fireEvent.click(btn[25]);
+		const btnDay = [...document.querySelectorAll(".day-of-month")];
+		fireEvent.click(btnDay[25]);
 		expect(input.value).not.toBeNull();
 	});
 
