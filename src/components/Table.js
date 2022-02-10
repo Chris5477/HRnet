@@ -45,7 +45,7 @@ const Table = () => {
 		let array = arraySplit[indexPagination];
 		setBoolean(!boolean);
 
-		/* KNOWING THAT ALL VALUES IN OUR FORM ARE OF 	TYPE STRING , USE THE LOCALECOMPARE METHOD */
+		/* KNOWING THAT ALL VALUES IN OUR FORM ARE OF TYPE STRING , USE THE LOCALECOMPARE METHOD */
 		return (array =
 			String(array[0][propriety]).toLowerCase() > String(array[array.length - 1][propriety].toLowerCase())
 				? dataEmployee.sort((a, b) => a[propriety].localeCompare(b[propriety]))

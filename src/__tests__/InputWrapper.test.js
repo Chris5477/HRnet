@@ -31,8 +31,8 @@ describe("Testing component InputWrapper", () => {
 		expect(input.value).not.toBeNull();
 	});
 
-	test("Should change value when the user eneters something", () => {
-		const mockChange = jest.fn().mockReturnValue("e");
+	test("Should change value when the user enters something", () => {
+		const mockChange = jest.fn();
 		render(<InputWrapper label={"firstName"} text={"text"} method={(e) => mockChange(e)} />);
 		const input = document.querySelector("input");
 		fireEvent.change(input, { target: { value: "nameUser" } });

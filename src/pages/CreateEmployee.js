@@ -45,6 +45,9 @@ const CreateEmployee = () => {
 
 	/* ALLOWS TO MANAGE FORMS */
 	const sendData = (e) => {
+		if (document.querySelector("select").value == "Choisir un département") {
+			document.querySelector("select").value = "";
+		}
 		e.preventDefault();
 		const inputs = [...document.querySelectorAll("input")];
 		inputs.splice(4, 0, document.querySelector("select"));

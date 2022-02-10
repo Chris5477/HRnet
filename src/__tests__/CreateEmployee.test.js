@@ -1,9 +1,10 @@
 import CreateEmployee from "../pages/CreateEmployee";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, getByRole, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
 import { store } from "../redux/store";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, useResolvedPath } from "react-router-dom";
 
 describe("Testing CreateEmployee component", () => {
 	beforeEach(() =>
@@ -30,22 +31,17 @@ describe("Testing CreateEmployee component", () => {
 		fireEvent.click(btn);
 		const errorMessage = screen.getAllByText("Veuillez remplir tous les champs du formulaire !");
 		expect(errorMessage).toBeTruthy();
+		expect(inputs[8].value).toBe("");
 	});
 
 	test("Should call successValidation function", () => {
 		const inputs = [...document.querySelectorAll("input")];
-		inputs.push(document.querySelector("select"));
-
-		(inputs[0].value = "nameUser"),
-			(inputs[1].value = "lastNameUser"),
-			(inputs[2].value = "18/12/1990"),
-			(inputs[3].value = "01/01/1970"),
-			(inputs[8].select = "jobUser"),
-			(inputs[5].value = "streetUser"),
-			(inputs[6].value = "cityUser"),
-			(inputs[7].value = "stateUser"),
-			(inputs[4].value = "codeUser");
-
+		const select = document.querySelector("select");
+		const option = document.querySelector("select option:nth-child(2)");
+		inputs.push(select);
+		inputs.forEach((el) => (el.value = "ok"));
+		inputs.forEach((el) => console.log(el.value));
+		userEvent.selectOptions(select, option, { value: "sales" });
 		const btn = screen.getByText("Create");
 		fireEvent.click(btn);
 		const modal = document.querySelector(".modal");

@@ -117,14 +117,14 @@ body {
 
 .create-btn {
 	position: absolute;
-	bottom: 0%;
+	bottom: 5%;
 	left: 50%;
 	transform: translateX(-50%);
-	width: 120px;
-	height: 120px;
-	border-radius: 50%;
+	width: 100px;
+	height: 40px;
 	background-color: white;
 	font-size: 20px;
+	border-radius: 7px;
 	cursor: pointer;
 }
 
@@ -134,10 +134,9 @@ body {
 	bottom: 0%;
 	left: 0%;
 	z-index: -100;
-	width: 120px;
-	height: 120px;
-	border-radius: 50%;
-	background-color: #f2f2f2;
+	border-radius: 7px;
+	width: 100px;
+	height: 40px;
 }
 
 .create-btn:hover::after {
@@ -146,6 +145,7 @@ body {
 
 @keyframes pulse {
 	100% {
+		background-color: #f2f2f2;
 		transform: scale(1.5);
 		opacity: 0.1;
 	}

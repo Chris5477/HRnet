@@ -14,17 +14,28 @@ const InputWrapper = forwardRef(({ label, text, method }, ref) => {
 	const [beginDate, setbeginDate] = useState("");
 	const [showCalendar, setShowCalendar] = useState(false);
 
+	const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
 	/* ALLOWS TO SET A BIRTHDAY DATE AND CLOSE CALENDAR */
 
+	const formatDate = (date) => {
+		const [month, day, year] = String(date).split(" ").splice(1, 3);
+		const indexMonth = months.indexOf(month) + 1;
+		const formatMonth = String(indexMonth).length == 1 ? "0" + indexMonth : indexMonth;
+		return `${year}/${formatMonth}/${day}`;
+	};
+
 	const changeDateBirthday = (date) => {
-		setbirthDay(String(date).split(" ").splice(1, 3).join("/"));
+		const birthdayDate = formatDate(date);
+		setbirthDay(birthdayDate);
 		setShowCalendar(false);
 	};
 
 	/* ALLOWS TO SET A BEGIN DATE AND CLOSE CALENDAR */
 
 	const changeDateBegin = (date) => {
-		setbeginDate(String(date).split(" ").splice(1, 3).join("/"));
+		const beginDate = formatDate(date);
+		setbeginDate(beginDate);
 		setShowCalendar(false);
 	};
 
