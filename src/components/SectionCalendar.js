@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import ArrowButton from "./ArrowButton";
 import DateSelect from "./DateSelect";
 
@@ -15,5 +16,12 @@ const SectionCalendar = ({ array, method, secondMethod, classWrapper, classEleme
 			))}
 		</div>
 	);
+};
+SectionCalendar.propTypes = {
+	array: PropTypes.array.isRequired,
+	method: PropTypes.func,
+	secondMethod: PropTypes.func,
+	classWrapper: PropTypes.string.isRequired,
+	classElement: PropTypes.string.isRequired,
 };
 export default SectionCalendar;

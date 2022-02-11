@@ -5,6 +5,32 @@ import "@testing-library/jest-dom";
 describe("Testing Calendar Component", () => {
 	beforeEach(() => render(<Calendar setter={() => null} />));
 
+	test("Should show previous month", () => {
+		const currentMonth = screen.getAllByText("February");
+		expect(currentMonth).toBeTruthy();
+		const previousMonthBtn = document.querySelector(".previous-month");
+		fireEvent.click(previousMonthBtn);
+		const actualMonth = screen.getAllByText("January");
+		expect(actualMonth).toBeTruthy();
+		fireEvent.click(previousMonthBtn);
+		const previousYear = screen.getAllByText("December");
+		expect(previousYear).toBeTruthy();
+	});
+
+	test("Should show next month", () => {
+		const currentMonth = screen.getAllByText("February");
+		expect(currentMonth).toBeTruthy();
+		const nextMonthBtn = document.querySelector(".next-month");
+		fireEvent.click(nextMonthBtn);
+		const actualMonth = screen.getAllByText("March");
+		expect(actualMonth).toBeTruthy();
+		for (let i = 0; i < 10; i++) {
+			fireEvent.click(nextMonthBtn);
+		}
+		const nextYear = screen.getAllByText("January");
+		expect(nextYear).toBeTruthy();
+	});
+
 	test("Should show a list of month", () => {
 		const currentMonth = document.querySelector(".actualMonth");
 		fireEvent.click(currentMonth);
