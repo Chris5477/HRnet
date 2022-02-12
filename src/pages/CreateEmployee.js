@@ -36,11 +36,19 @@ const CreateEmployee = () => {
 	const succesValidation = (arr) => {
 		setFormMessage("");
 		setShowModal(true);
-		const res = completeList.reduce((acc, val, index) => {
-			acc[val.label] = arr[index].value;
-			return acc;
-		}, {});
-		myDispatch(setData(res));
+		const employeeObject = {
+			firstName: arr[0].value,
+			lastName: arr[1].value,
+			begin: arr[3].value,
+			department: arr[4].value,
+			birthday: arr[2].value,
+			street: arr[5].value,
+			city: arr[6].value,
+			state: arr[7].value,
+			zip: arr[8].value,
+		};
+
+		myDispatch(setData(employeeObject));
 	};
 
 	/* ALLOWS TO MANAGE FORMS */

@@ -15,6 +15,7 @@ const Table = () => {
 	/* SET A BOOLEAN TO RELAOD COMPONENT */
 
 	const [boolean, setBoolean] = useState();
+	const [data, setData] = useState("");
 
 	/*SET AN INDEXPAGINATION TO SEPARATE ALL EMPLOYEES INTO SEVERAL LIST */
 	const [indexPagination, setIndexPagination] = useState(0);
@@ -42,14 +43,14 @@ const Table = () => {
 	/* ALLOWS TO SORT LIST EMPLOYEES */
 	const sortArray = (index) => {
 		const propriety = Object.keys(arraySplit[indexPagination][0])[index];
-		let array = arraySplit[indexPagination];
-		setBoolean(!boolean);
+		if (data == propriety) {
+			setData("");
+			return dataEmployee.sort((a, b) => b[propriety].localeCompare(a[propriety]));
+		}
 
-		/* KNOWING THAT ALL VALUES IN OUR FORM ARE OF TYPE STRING , USE THE LOCALECOMPARE METHOD */
-		return (array =
-			String(array[0][propriety]).toLowerCase() > String(array[array.length - 1][propriety].toLowerCase())
-				? dataEmployee.sort((a, b) => a[propriety].localeCompare(b[propriety]))
-				: dataEmployee.sort((a, b) => b[propriety].localeCompare(a[propriety])));
+		setData(propriety);
+		setBoolean(!boolean);
+		return dataEmployee.sort((a, b) => a[propriety].localeCompare(b[propriety]));
 	};
 
 	/* istanbul ignore next */

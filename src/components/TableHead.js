@@ -8,9 +8,9 @@ const TableHead = ({ value, method }) => {
 	const [indicatorUnOrder, setIndicatorUnOrder] = useState(false);
 
 	const setIndicators = () => {
-		method();
 		setIndicatorOrder(!indicatorOrder);
 		setIndicatorUnOrder(!indicatorUnOrder);
+		method();
 	};
 
 	return (

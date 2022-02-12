@@ -5,24 +5,35 @@ import { months, days, schemaMonths } from "../utils/utils_date";
 import { correctPositionDay, selectMonth, selectYear } from "../utils/function.js";
 import PropTypes from "prop-types";
 
-const Calendar = ({ setter }) => {
-	const [month, setMonth] = useState(months[new Date().getMonth()]);
+/* aLLOWS TO SHOW A CALENDAR */
 
+const Calendar = ({ setter }) => {
+	/* GET MONTH AND YEAR ACTUAL */
+	const [month, setMonth] = useState(months[new Date().getMonth()]);
 	const [year, setYear] = useState(new Date().getFullYear());
+
+	/* SET BOOLEANS TO SHOW MONTH OR YEAR MENU */
 	const [visibilityContainerMonth, setVisibilityContainerMonth] = useState(false);
 	const [visibilityContainerYear, setVisibilityContainerYear] = useState(false);
+
+	/*SET A FLAG TO INCREMENT OR DECREMENT THE YEARS IN MENU YEAR */
 	let [flag, setFlag] = useState(0);
 
+	/* THIS VARIABLE CONTAINS OBJECT MONTH TO SET HOW MANY OF DAYS THERE IS IN THE MONTH */
 	const allMonths = schemaMonths();
 
-	let indexMonth = months.indexOf(month);
+	/* GET VALUE NUMERIC OF MONTH */
+	let numericMonth = months.indexOf(month);
 
+	/* LIST FROM CURRENT YEAR TO 10 YEARS BACK */
 	const listYear = Array.from({ length: 10 })
 		.fill(year)
 		.map((currentYear, index) => currentYear - index + flag);
 
-	const firstDay = correctPositionDay(year, indexMonth, days);
+	/* GET THE FIRST OF THE MONTH TO CORRECTLY SET THE LAYING OF DAYS IN THE CALENDAR */
+	const firstDay = correctPositionDay(year, numericMonth, days);
 
+	/* ALLOWS TO SET PREVIOUS OR HIGHER YEARS IN THE YEAR MENU */
 	const setValueDateInMenu = (symbol) => {
 		if (symbol === "<") {
 			setFlag((flag += -10));
@@ -31,29 +42,30 @@ const Calendar = ({ setter }) => {
 		}
 	};
 
+	/* 
+ALLOWS TO NAVIGATE ON THE PREVIOUS MONTH*/
 	const previousMonth = () => {
-		if (indexMonth == 0) {
-			indexMonth = 11;
+		if (numericMonth == 0) {
+			numericMonth = 11;
 			setYear(year - 1);
 		} else {
-			indexMonth--;
+			numericMonth--;
 		}
-		setMonth(months[indexMonth]);
+		setMonth(months[numericMonth]);
 	};
 
+	/* ALLOWS TO NAVIGATE ON THE NEXT MONTH*/
 	const nextMonth = () => {
-		if (indexMonth == 11) {
-			indexMonth = 0;
+		if (numericMonth == 11) {
+			numericMonth = 0;
 			setYear(year + 1);
 		} else {
-			indexMonth++;
+			numericMonth++;
 		}
 
-		setMonth(months[indexMonth]);
+		setMonth(months[numericMonth]);
 	};
 
-	const formatMonth = () => (String(months.indexOf(month)).length === 1 ? `0${months.indexOf(month) + 1}` : months.indexOf(month));
-	const correctFormatMonth = formatMonth();
 	return (
 		<div className="container-calendar">
 			<div className="calendar">
@@ -94,7 +106,7 @@ const Calendar = ({ setter }) => {
 					)}
 				</div>
 				<SectionCalendar array={days} classWrapper={"calendar-all-days"} classElement={"day-of-week"} />
-				<CalendarDays method={setter} arrayMonth={allMonths[month]} dayOne={firstDay} year={year} month={correctFormatMonth} />
+				<CalendarDays method={setter} arrayMonth={allMonths[month]} dayOne={firstDay} year={year} month={month} />
 			</div>
 		</div>
 	);

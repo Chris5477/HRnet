@@ -1,9 +1,10 @@
 import Calendar from "../components/Calendar";
+import CreateEmployee from "../pages/CreateEmployee";
 import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 
 describe("Testing Calendar Component", () => {
-	beforeEach(() => render(<Calendar setter={() => null} />));
+	beforeEach(() => render(<Calendar setter={() => jest.fn().mockReturnValue("2022/02/12")} />));
 
 	test("Should show previous month", () => {
 		const currentMonth = screen.getAllByText("February");

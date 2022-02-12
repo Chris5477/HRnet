@@ -37,18 +37,6 @@ describe("Testing Table component", () => {
 		const span = document.querySelector(".value-thead");
 		fireEvent.click(span);
 		expect(store.getState().filteredEmployee[0].firstName).not.toEqual(valueArray);
-	});
-
-	test("Should sort data", () => {
-		const contentStore = store.getState().filteredEmployee;
-		const name = contentStore[0];
-		const lastName = contentStore[contentStore.length - 1];
-		contentStore.pop();
-		contentStore.shift();
-		contentStore.unshift(lastName);
-		contentStore.push(name);
-		const valueArray = contentStore[0].firstName;
-		const span = document.querySelector(".value-thead");
 		fireEvent.click(span);
 		expect(store.getState().filteredEmployee[0].firstName).not.toEqual(valueArray);
 	});

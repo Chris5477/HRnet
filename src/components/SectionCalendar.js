@@ -2,9 +2,12 @@ import PropTypes from "prop-types";
 import ArrowButton from "./ArrowButton";
 import DateSelect from "./DateSelect";
 
+/* CREATE A MENU FOR THE CALENDAR */
+
 const SectionCalendar = ({ array, method, secondMethod, classWrapper, classElement }) => {
 	return (
 		<div className={classWrapper}>
+			{/*VERIFY IF ARRAY CONTAINS YEARS OR MONTHS */}
 			{!isNaN(array[0]) && (
 				<header className="menu-year">
 					<ArrowButton changeYears={secondMethod} text={"<"} classCss={"nav-year"} />

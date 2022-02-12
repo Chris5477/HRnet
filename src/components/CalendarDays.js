@@ -1,6 +1,8 @@
 import Days from "./Days";
 import PropTypes from "prop-types";
 
+/* CREATE A CONTAINER DAYS OF CALENDAR */
+
 const CalendarDays = ({ arrayMonth, dayOne, method, year, month }) => {
 	return (
 		<div className="calendar-days-of-month">
@@ -20,6 +22,6 @@ CalendarDays.propTypes = {
 	dayOne: PropTypes.number.isRequired,
 	method: PropTypes.func.isRequired,
 	year: PropTypes.any,
-	month: PropTypes.any.isRequired,
+	month: PropTypes.string,
 };
 export default CalendarDays;
