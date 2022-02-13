@@ -13,7 +13,7 @@ const Days = ({ method, text, year, month }) => {
 	};
 
 	return (
-		<span onClick={(e) => method && method(formatDate(e.target.innerText))} className={"day-of-month"}>
+		<span onClick={(e) => method && method(formatDate(e.target.textContent))} className={"day-of-month"}>
 			{text}
 		</span>
 	);

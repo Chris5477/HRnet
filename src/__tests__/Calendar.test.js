@@ -4,7 +4,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 
 describe("Testing Calendar Component", () => {
-	beforeEach(() => render(<Calendar setter={() => jest.fn().mockReturnValue("2022/02/12")} />));
+	beforeEach(() => render(<Calendar setter={() => null} />));
 
 	test("Should show previous month", () => {
 		const currentMonth = screen.getAllByText("February");

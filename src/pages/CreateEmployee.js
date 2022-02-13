@@ -49,6 +49,7 @@ const CreateEmployee = () => {
 		};
 
 		myDispatch(setData(employeeObject));
+		arr.forEach((el) => (el.value = ""));
 	};
 
 	/* ALLOWS TO MANAGE FORMS */

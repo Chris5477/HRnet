@@ -47,4 +47,26 @@ describe("Testing CreateEmployee component", () => {
 		const modal = document.querySelector(".modal");
 		expect(modal).toBeInTheDocument();
 	});
+
+	test("Should show the date choose", () => {
+		const birthdayInput = document.getElementById("birthday");
+		fireEvent.focus(birthdayInput);
+		const calendar = document.querySelector(".calendar");
+		expect(calendar).toBeInTheDocument();
+		const btnsDays = [...document.querySelectorAll(".day-of-month")];
+		fireEvent.click(btnsDays[12]);
+		expect(birthdayInput.value).toBe("2022/02/12");
+		expect(birthdayInput.value).not.toBe("2022/02/02");
+	});
+
+	test("Should be displayed with a zero if the date is less than 10", () => {
+		const birthdayInput = document.getElementById("birthday");
+		fireEvent.focus(birthdayInput);
+		const calendar = document.querySelector(".calendar");
+		expect(calendar).toBeInTheDocument();
+		const btnsDays = [...document.querySelectorAll(".day-of-month")];
+		fireEvent.click(btnsDays[4]);
+		expect(birthdayInput.value).toBe("2022/02/04");
+		expect(birthdayInput.value).not.toBe("2022/02/4");
+	});
 });
