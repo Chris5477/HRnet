@@ -3,6 +3,7 @@
 export const CREATE_EMPLOYEE = "CREATE_EMPLOYEE";
 export const MAX_RESULT_EMPLOYEE = "MAX_RESULT_EMPLOYEE";
 export const FILTERED_EMPLOYEE = "FILTERED_EMPLOYEE";
+export const SET_INDEXPAGINATION = "SET_INDEXPAGINATION";
 
 const createEmployee = (obj) => {
 	return {
@@ -25,6 +26,13 @@ const filteredEmployee = (word) => {
 	};
 };
 
+const setIndexPagination = (index) => {
+	return {
+		type: SET_INDEXPAGINATION,
+		payload: index,
+	};
+};
+
 export const setData = (value) => {
 	return (dispatch) => {
 		dispatch(createEmployee(value));
@@ -40,5 +48,11 @@ export const setMaxEmployee = (value) => {
 export const filterEmployee = (value) => {
 	return (dispatch) => {
 		dispatch(filteredEmployee(value));
+	};
+};
+
+export const changePagination = (index) => {
+	return (dispatch) => {
+		dispatch(setIndexPagination(index));
 	};
 };

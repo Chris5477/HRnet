@@ -2,7 +2,7 @@ import { listMaxResult } from "../utils/Listing-option";
 import { useRef, useState } from "react";
 import InputWrapper from "./InputWrapper";
 import { useSelector, useDispatch } from "react-redux";
-import { filterEmployee, setMaxEmployee } from "../redux/employee";
+import { changePagination, filterEmployee, setMaxEmployee } from "../redux/employee";
 import Select from "@chris5477/scroll-menu/dist/components/Select";
 
 /* CREATE A COMPONENT WHICH CONTAINS MENULISTEMPLOYEE */
@@ -19,6 +19,7 @@ const MenuListEmployee = () => {
 
 	/* ALLOWS TO SET A MAX FOR RESEARCH ON THE STORE*/
 	const setMaxResult = (e) => {
+		myDispatch(changePagination(0));
 		myDispatch(setMaxEmployee(e.target.value));
 	};
 

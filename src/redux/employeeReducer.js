@@ -1,9 +1,10 @@
 /* istanbul ignore file */
-import { CREATE_EMPLOYEE, FILTERED_EMPLOYEE, MAX_RESULT_EMPLOYEE } from "./employee";
+import { CREATE_EMPLOYEE, FILTERED_EMPLOYEE, MAX_RESULT_EMPLOYEE, SET_INDEXPAGINATION } from "./employee";
 
 const initialState = {
 	employee: [],
 	maxEmployee: 10,
+	indexPagination: 0,
 	filteredEmployee: [],
 };
 
@@ -19,6 +20,12 @@ export const reducerEmployee = (state = initialState, action) => {
 			return {
 				...state,
 				maxEmployee: action.payload,
+			};
+
+		case SET_INDEXPAGINATION:
+			return {
+				...state,
+				indexPagination: action.payload,
 			};
 
 		case FILTERED_EMPLOYEE:

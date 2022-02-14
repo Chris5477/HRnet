@@ -2,23 +2,23 @@ import { utilsData } from "../utils/Listing-inputs";
 import { useState } from "react";
 import TableHead from "../components/TableHead";
 import LineEmployee from "../components/LineEmployee";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { changePagination } from "../redux/employee";
 
 /* CREATE A TABLE COMPONENT TO LISTING ALL EMPLOYEES */
 
 const Table = () => {
+	const dispatch = useDispatch();
 	/* GET VALUE ON THE STORE */
 
 	const dataEmployee = useSelector((state) => state.filteredEmployee);
 	const maxEmployee = useSelector((state) => state.maxEmployee);
+	const indexPagination = useSelector((state) => state.indexPagination);
 
 	/* SET A BOOLEAN TO RELAOD COMPONENT */
 
 	const [boolean, setBoolean] = useState();
 	const [data, setData] = useState("");
-
-	/*SET AN INDEXPAGINATION TO SEPARATE ALL EMPLOYEES INTO SEVERAL LIST */
-	const [indexPagination, setIndexPagination] = useState(0);
 
 	let arraySplit = [];
 	let pieceOfArray = [];
@@ -78,7 +78,7 @@ const Table = () => {
 				{arraySplit.map((_, index) => (
 					<span
 						className={index === indexPagination ? "activeSpan" : null}
-						onClick={() => setIndexPagination(index)}
+						onClick={() => dispatch(changePagination(index))}
 						key={`index ${index}`}
 					>
 						{index + 1}
