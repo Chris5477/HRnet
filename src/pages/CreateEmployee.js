@@ -22,10 +22,6 @@ const CreateEmployee = () => {
 		store.maxEmployee = Math.max();
 	}, [store]);
 
-	/* ALLOWS ADD SELECT ELEMENT ON LIST INPUT ELEMENT */
-
-	const completeList = arrayInputsIdentity.concat([{ label: "department", value: "" }], arrayInputsAdress);
-
 	/* ALLOWS TO REFUSE EMPLOYEE CREATION IF ONE OR MORE FORM FIELDS ARE MISSING */
 	const errorValidation = (arr) => {
 		setFormMessage("Veuillez remplir tous les champs du formulaire !");

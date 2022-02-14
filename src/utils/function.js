@@ -6,13 +6,13 @@ export const correctPositionDay = (year, indexMonth, days) => {
 	return findIndex;
 };
 
-export const selectMonth = (e, setteurOne, setteurTwo, setteurThree) => {
+export const selectMonth = (e, setteurOne, setteurThree) => {
 	setteurOne(e.target.innerText);
-	setteurTwo(0);
 	setteurThree(false);
 };
 
-export const selectYear = (e, setteurOne, setteurTwo) => {
+export const selectYear = (e, setteurOne, setteurTwo, setteurThree) => {
 	setteurOne(e.target.innerText);
 	setteurTwo(false);
+	setteurThree(0);
 };

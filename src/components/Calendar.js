@@ -20,7 +20,7 @@ const Calendar = ({ setter }) => {
 	let [flag, setFlag] = useState(0);
 
 	/* THIS VARIABLE CONTAINS OBJECT MONTH TO SET HOW MANY OF DAYS THERE IS IN THE MONTH */
-	const allMonths = schemaMonths();
+	const allMonths = schemaMonths(year);
 
 	/* GET VALUE NUMERIC OF MONTH */
 	let numericMonth = months.indexOf(month);
@@ -45,7 +45,7 @@ const Calendar = ({ setter }) => {
 	/* 
 ALLOWS TO NAVIGATE ON THE PREVIOUS MONTH*/
 	const previousMonth = () => {
-		if (numericMonth == 0) {
+		if (numericMonth === 0) {
 			numericMonth = 11;
 			setYear(year - 1);
 		} else {
@@ -56,7 +56,7 @@ ALLOWS TO NAVIGATE ON THE PREVIOUS MONTH*/
 
 	/* ALLOWS TO NAVIGATE ON THE NEXT MONTH*/
 	const nextMonth = () => {
-		if (numericMonth == 11) {
+		if (numericMonth === 11) {
 			numericMonth = 0;
 			setYear(year + 1);
 		} else {
@@ -90,7 +90,7 @@ ALLOWS TO NAVIGATE ON THE PREVIOUS MONTH*/
 					{visibilityContainerMonth && (
 						<SectionCalendar
 							array={months}
-							method={(e) => selectMonth(e, setMonth, setFlag, setVisibilityContainerMonth)}
+							method={(e) => selectMonth(e, setMonth, setVisibilityContainerMonth)}
 							classWrapper={"select-date"}
 							classElement={"select-month"}
 						/>
@@ -98,7 +98,7 @@ ALLOWS TO NAVIGATE ON THE PREVIOUS MONTH*/
 					{visibilityContainerYear && (
 						<SectionCalendar
 							array={listYear}
-							method={(e) => selectYear(e, setYear, setVisibilityContainerYear)}
+							method={(e) => selectYear(e, setYear, setVisibilityContainerYear, setFlag)}
 							secondMethod={setValueDateInMenu}
 							classWrapper={"select-date"}
 							classElement={"select-year"}

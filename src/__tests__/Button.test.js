@@ -2,7 +2,7 @@ import { render } from "@testing-library/react";
 import Button from "../components/Button";
 import "@testing-library/jest-dom";
 
-beforeEach(() => render(<Button nameClass={"btn-test"} method={() => null} text={"Cliquer"} />));
+beforeEach(() => render(<Button nameClass={"btn-test"} method={() => null} text={"Create"} />));
 
 describe("Testing Button component", () => {
 	test("Should render component", () => {
@@ -16,8 +16,8 @@ describe("Testing Button component", () => {
 		expect(classBtn).toBe("btn-test");
 	});
 
-	test("Should have conetnt text", () => {
+	test("Should have content text", () => {
 		const btn = document.querySelector("button");
-		expect(btn).toHaveTextContent("Cliquer");
+		expect(btn).toHaveTextContent("Create");
 	});
 });

@@ -113,6 +113,7 @@ select {
 	font-size: 25px;
 	font-style: italic;
 	text-align: center;
+	transform: translateY(-50px);
 }
 
 .error-validation {
