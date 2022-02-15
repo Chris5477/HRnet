@@ -34,7 +34,7 @@ const InputWrapper = forwardRef(({ label, text, method }, ref) => {
 	if (label === "Department") {
 		input = (
 			<div className="formData">
-				<Select textLabel={label} arr={options} />
+				<Select id={"department"} textLabel={label} arr={options} />
 			</div>
 		);
 

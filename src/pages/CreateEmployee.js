@@ -49,7 +49,10 @@ const CreateEmployee = () => {
 		};
 
 		myDispatch(setData(employeeObject));
-		arr.forEach((el) => (el.value = ""));
+		arr.forEach((el) => {
+			el.value = "";
+			el.classList.remove("error-validation");
+		});
 	};
 
 	/* ALLOWS TO MANAGE FORMS */
